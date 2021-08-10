@@ -8,17 +8,19 @@ dubu.finance is DeFi project that operates on a Binance Smart Chain.
 
 ## Getting started
 
-### Client
+### Frontend
 
 ```
-cd client
+cd frontend
 npm start
 ```
 
 ### Contract
 
 ```
-truffle migrate --network testnet
+npx hardhat compile
 ```
 
 More detail see [truffle](https://www.trufflesuite.com/) and [BSC](https://docs.binance.org/smart-chain/developer/deploy/truffle.html)
+
+Powered by vector team.
