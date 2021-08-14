@@ -1,9 +1,9 @@
 import React from "react";
-import { HeadlineProps } from "../types/headline";
+import { TextStylesProps } from "../types/headline";
 
 import "./index.css";
 
-const Headline1: React.FC<HeadlineProps> = ({ children }) => (
+const Headline1: React.FC<TextStylesProps> = ({ children }) => (
   <h1 className="headline1">{children}</h1>
 );
 

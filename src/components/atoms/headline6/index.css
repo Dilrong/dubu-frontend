@@ -1,0 +1,9 @@
+@import "../../_settings/_variables.css";
+
+.Headline6 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: 0.15px;
+}

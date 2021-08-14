@@ -1,5 +1,5 @@
 import { ReactChildren, ReactChild } from "react";
 
-export type HeadlineProps = {
+export type TextStylesProps = {
   children: ReactChild | ReactChildren;
 };

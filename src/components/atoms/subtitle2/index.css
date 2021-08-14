@@ -1,0 +1,9 @@
+@import "../../_settings/_variables.css";
+
+.Subtitle2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.1px;
+}

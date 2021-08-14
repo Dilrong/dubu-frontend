@@ -1,9 +1,9 @@
 @import "../../_settings/_variables.css";
 
-.headline1 {
+.Overline {
   font-style: normal;
   font-weight: normal;
-  font-size: 97px;
-  line-height: 106px;
-  letter-spacing: -1.5px;
+  font-size: 10px;
+  line-height: 11px;
+  letter-spacing: 1.5px;
 }
