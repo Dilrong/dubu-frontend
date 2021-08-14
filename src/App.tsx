@@ -1,7 +1,8 @@
 import React from "react";
+import "./bootstrap";
 
 function App() {
-  return <div></div>;
+  return <div>test</div>;
 }
 
 export default App;

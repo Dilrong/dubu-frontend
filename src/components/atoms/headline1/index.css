@@ -1,0 +1,10 @@
+@import "../../_settings/_variables.css";
+
+.headline1 {
+  font-family: Archivo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 97px;
+  line-height: 106px;
+  letter-spacing: -1.5px;
+}
