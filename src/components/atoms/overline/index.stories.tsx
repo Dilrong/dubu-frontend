@@ -3,6 +3,6 @@ import { storiesOf } from "@storybook/react";
 
 import Overline from ".";
 
-storiesOf("Overline", module).add("default", () => (
+storiesOf("Atoms/Overline", module).add("default", () => (
   <Overline>Overline</Overline>
 ));

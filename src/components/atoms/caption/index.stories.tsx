@@ -3,4 +3,6 @@ import { storiesOf } from "@storybook/react";
 
 import Caption from ".";
 
-storiesOf("Caption", module).add("default", () => <Caption>Caption</Caption>);
+storiesOf("Atoms/Caption", module).add("default", () => (
+  <Caption>Caption</Caption>
+));

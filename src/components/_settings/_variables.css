@@ -38,6 +38,7 @@
   --info: #39c0ed;
   --warning: #ffa900;
   --error: #f93154;
+  --high-emphasis: rgba(255, 255, 255, 0.82);
 
   /*
     * Fonts
