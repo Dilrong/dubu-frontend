@@ -40,6 +40,10 @@
   --error: #f93154;
   --high-emphasis: rgba(255, 255, 255, 0.82);
 
+  --small-shadow: #212121;
+  --regular-shadow: #303030;
+  --larger--shadow: #424242;
+
   /*
     * Fonts
     */

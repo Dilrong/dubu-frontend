@@ -6,4 +6,5 @@
   font-size: 20px;
   line-height: 22px;
   letter-spacing: 0.15px;
+  color: var(--high-emphasis);
 }

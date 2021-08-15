@@ -21,7 +21,7 @@
 
 .button--fill:active {
   color: white;
-  background-color: var(--primary-100);
+  background-color: var(--primary-400);
 }
 
 .button--outline {
@@ -32,12 +32,12 @@
 
 .button--outline:hover {
   color: white;
-  background-color: var(--primary-300);
+  background-color: var(--primary-200);
 }
 
 .button--outline:active {
   color: white;
-  background-color: var(--primary-200);
+  background-color: var(--primary-400);
 }
 
 .button--small {
