@@ -6,7 +6,7 @@ import MainPot from "./components/templates/mainpot";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/index.html">
       <div className="container">
         <Navbar isConnected />
         <div>
