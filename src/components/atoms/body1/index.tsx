@@ -4,7 +4,7 @@ import { TextStylesProps } from "../../types/textStylesProps";
 import "./index.css";
 
 const Body1: React.FC<TextStylesProps> = ({ children }) => (
-  <h1 className="Body1">{children}</h1>
+  <div className="Body1">{children}</div>
 );
 
 export default Body1;

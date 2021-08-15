@@ -4,7 +4,7 @@ import { TextStylesProps } from "../../types/textStylesProps";
 import "./index.css";
 
 const Headline2: React.FC<TextStylesProps> = ({ children }) => (
-  <h1 className="headline2">{children}</h1>
+  <h2 className="headline2">{children}</h2>
 );
 
 export default Headline2;

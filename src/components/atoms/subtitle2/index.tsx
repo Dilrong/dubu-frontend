@@ -4,7 +4,7 @@ import { TextStylesProps } from "../../types/textStylesProps";
 import "./index.css";
 
 const Subtitle2: React.FC<TextStylesProps> = ({ children }) => (
-  <h1 className="Subtitle2">{children}</h1>
+  <div className="Subtitle2">{children}</div>
 );
 
 export default Subtitle2;

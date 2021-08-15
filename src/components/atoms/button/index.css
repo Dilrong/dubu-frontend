@@ -1,6 +1,59 @@
 @import "../../_settings/_variables.css";
 
-.Button {
+.button {
+  border: 0;
+  border-radius: 3em;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  outline: none;
+}
+
+.button--fill {
+  color: white;
+  background-color: var(--primary-300);
+}
+
+.button--fill:hover {
+  color: white;
+  background-color: var(--primary-200);
+}
+
+.button--fill:active {
+  color: white;
+  background-color: var(--primary-100);
+}
+
+.button--outline {
+  color: var(--primary-300);
+  border: solid 1px var(--primary-300);
+  background-color: transparent;
+}
+
+.button--outline:hover {
+  color: white;
+  background-color: var(--primary-300);
+}
+
+.button--outline:active {
+  color: white;
+  background-color: var(--primary-200);
+}
+
+.button--small {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+.button--medium {
+  font-size: 14px;
+  padding: 11px 20px;
+}
+.button--large {
+  font-size: 16px;
+  padding: 12px 24px;
+}
+
+.text {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;

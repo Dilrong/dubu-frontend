@@ -1,0 +1,44 @@
+@import "../../_settings/_variables.css";
+
+.navbar {
+  align-items: stretch;
+  display: flex;
+  min-height: 3.25rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-end {
+  align-items: stretch;
+  display: flex;
+}
+
+.navbar-end > a {
+  text-decoration: none;
+}
+
+.navbar-item {
+  padding: 0.5rem 0.75rem;
+  color: rgba(255, 255, 255, 0.82);
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  letter-spacing: 0.15px;
+}
+
+.navbar-item:hover {
+  font-weight: bold;
+}
