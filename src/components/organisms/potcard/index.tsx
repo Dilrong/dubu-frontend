@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../../atoms/button";
-import Caption from "../../atoms/caption";
-import Headline6 from "../../atoms/headline6";
-import Subtitle1 from "../../atoms/subtitle1";
+import Button from "../../atoms/Button";
+import Caption from "../../atoms/Caption";
+import Headline6 from "../../atoms/Headline6";
+import Subtitle1 from "../../atoms/Subtitle1";
 
 import "./index.css";
 

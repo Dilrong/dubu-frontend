@@ -1,8 +1,8 @@
 import React from "react";
 import "./bootstrap";
-import Navbar from "./components/organisms/navbar";
+import Navbar from "./components/organisms/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MainPot from "./components/templates/mainpot";
+import MainPot from "./components/templates/MainPot";
 
 function App() {
   return (

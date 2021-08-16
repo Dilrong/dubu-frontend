@@ -1,8 +1,8 @@
 import React from "react";
-import Headline5 from "../../atoms/headline5";
-import SocialIcons from "../../molecules/socialIcons";
-import TvlBanner from "../../molecules/tvlBanner";
-import PotCard from "../../organisms/potCard";
+import Headline5 from "../../atoms/Headline5";
+import SocialIcons from "../../molecules/SocialIcons";
+import TvlBanner from "../../molecules/TvlBanner";
+import PotCard from "../../organisms/PotCard";
 
 import "./index.css";
 
