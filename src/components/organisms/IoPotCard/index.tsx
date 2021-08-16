@@ -1,12 +1,13 @@
 import React from "react";
-import Button from "../../atoms/button";
-import Caption from "../../atoms/caption";
-import Headline6 from "../../atoms/headline6";
-import Subtitle1 from "../../atoms/subtitle1";
+import Button from "../../atoms/Button";
+import Caption from "../../atoms/Caption";
+import Headline6 from "../../atoms/Headline6";
+import Input from "../../atoms/Input";
+import Subtitle1 from "../../atoms/Subtitle1";
 
 import "./index.css";
 
-const PotCard: React.FC = () => {
+const IoPotCard: React.FC = () => {
   return (
     <div className="grid-card">
       <div className="grid-container">
@@ -50,11 +51,18 @@ const PotCard: React.FC = () => {
         </div>
       </div>
       <div className="grid-item-center">
-        <Button label="Play With POTS" />
-        <Caption>1 in 991 odds per $1000 deposit</Caption>
+        <Input label="Enter Pots amount" type="text" id="deposit" />
+        <br />
+        <Button label="Deposit" />
+        <Caption>
+          There’s a 10 day Fairplay Timelock. If you want to unstaking earlier
+          you’ll pay a 2.5%, or less, Fairness Fee. The fee reduces every
+          second.
+        </Caption>
       </div>
+      <hr />
     </div>
   );
 };
 
-export default PotCard;
+export default IoPotCard;

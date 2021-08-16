@@ -1,6 +1,6 @@
 import React from "react";
-import Caption from "../../atoms/caption";
-import Headline4 from "../../atoms/headline4";
+import Caption from "../../atoms/Caption";
+import Headline4 from "../../atoms/Headline4";
 
 import "./index.css";
 
