@@ -3,6 +3,7 @@ import "./bootstrap";
 import Navbar from "./components/organisms/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPot from "./components/templates/MainPot";
+import CommunityPot from "./components/templates/CommunityPot";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route exact path="/" component={MainPot} />
+          <Route path="/communityPots" component={CommunityPot} />
         </Switch>
       </div>
     </Router>

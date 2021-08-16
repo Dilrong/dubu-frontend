@@ -1,4 +1,6 @@
 export type TextCardProps = {
+  width?: number;
+  height?: number;
   img: string;
   title: string;
   body: string;

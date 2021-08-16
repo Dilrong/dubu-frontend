@@ -8,6 +8,8 @@ import { TextCardProps } from "../../types/TextCardProps";
 
 const TextCard: React.FC<TextCardProps> = ({
   img,
+  width = "150",
+  height = "130",
   title,
   body,
   buttonLabel,
@@ -15,7 +17,7 @@ const TextCard: React.FC<TextCardProps> = ({
 }) => {
   return (
     <div className="card">
-      <img src={img} alt="cardImage" width="150" height="130" />
+      <img src={img} alt="cardImage" width={width} height={height} />
       <Headline4>{title}</Headline4>
       <Body1>{body}</Body1>
       <br />
