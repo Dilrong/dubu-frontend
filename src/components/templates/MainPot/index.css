@@ -2,5 +2,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-items: center;
   text-align: center;
+  width: 100%;
+}
+
+.tab-container {
+  display: flex;
+  padding: 16px;
+}
+
+.tab-item {
+  padding: 0.5rem 0.75rem;
+}
+
+.list-container {
+  width: 100%;
 }

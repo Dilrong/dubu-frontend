@@ -7,9 +7,11 @@ import "./index.css";
 
 const Navbar: React.FC<NavProps> = ({ isConnected }) => (
   <nav className="navbar">
-    <Brand />
-    <div className="navbar-menu">
-      <div className="navbar-end">
+    <div className="navbar-end">
+      <Brand />
+    </div>
+    <div className="navbar-end">
+      <div className="navbar-menu">
         <a href="/">
           <span className="navbar-item">Dubupots</span>
         </a>
@@ -19,12 +21,12 @@ const Navbar: React.FC<NavProps> = ({ isConnected }) => (
         <a href="https://dubu-finance.gitbook.io/">
           <span className="navbar-item">Docs</span>
         </a>
+        {isConnected ? (
+          <Button label="x06121...32" />
+        ) : (
+          <Button label="Connect Wallet" />
+        )}
       </div>
-      {isConnected ? (
-        <Button label="x06121...32" />
-      ) : (
-        <Button label="Connect Wallet" />
-      )}
     </div>
   </nav>
 );

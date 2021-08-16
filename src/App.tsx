@@ -7,13 +7,11 @@ import MainPot from "./components/templates/MainPot";
 function App() {
   return (
     <Router basename="/index.html">
+      <Navbar isConnected />
       <div className="container">
-        <Navbar isConnected />
-        <div>
-          <Switch>
-            <Route exact path="/" component={MainPot} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={MainPot} />
+        </Switch>
       </div>
     </Router>
   );

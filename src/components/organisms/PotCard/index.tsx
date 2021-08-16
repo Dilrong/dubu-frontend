@@ -15,7 +15,8 @@ const PotCard: React.FC = () => {
         </div>
         <div className="grid-item-right">
           <Subtitle1>Dubu Pot</Subtitle1>
-          <Headline6>Win $360,824</Headline6>
+          <Headline6>Win </Headline6>
+          <Headline6 color="#735858">$360,824</Headline6>
           <Caption>in CAKE & POTS</Caption>
         </div>
       </div>
@@ -27,7 +28,7 @@ const PotCard: React.FC = () => {
         </div>
         <div className="grid-item-right">
           <Caption>INTEREST</Caption>
-          <Subtitle1>204.80% APY</Subtitle1>
+          <Subtitle1 color="#735858">204.80% APY</Subtitle1>
         </div>
       </div>
 
