@@ -1,3 +1,3 @@
-export type navProps = {
+export type NavProps = {
   isConnected: boolean;
 };

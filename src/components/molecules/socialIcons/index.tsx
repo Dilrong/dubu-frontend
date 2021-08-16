@@ -1,11 +1,11 @@
 import React from "react";
 import SocialButton from "../../atoms/socialButton";
-import { socialButtonProps } from "../../types/SocialButtonProps";
+import { SocialButtonProps } from "../../types/SocialButtonProps";
 
 import "./index.css";
 
 const SocialIcons: React.FC = () => {
-  const socialArray: socialButtonProps[] = [
+  const socialArray: SocialButtonProps[] = [
     {
       herf: "#",
       src: "/assets/github.svg",

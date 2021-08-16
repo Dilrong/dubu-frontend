@@ -2,7 +2,7 @@ import React from "react";
 import Headline5 from "../../atoms/headline5";
 import SocialIcons from "../../molecules/socialIcons";
 import TvlBanner from "../../molecules/tvlBanner";
-// import PotCard from "../../organisms/potCard";
+import PotCard from "../../organisms/potCard";
 
 import "./index.css";
 
@@ -14,7 +14,7 @@ const MainPot: React.FC = () => (
       </Headline5>
       <TvlBanner />
     </div>
-    {/* <PotCard /> */}
+    <PotCard />
     <SocialIcons />
   </div>
 );

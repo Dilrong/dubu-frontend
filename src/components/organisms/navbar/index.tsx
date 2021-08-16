@@ -1,11 +1,11 @@
 import React from "react";
 import Brand from "../../atoms/brand";
 import Button from "../../atoms/button";
-import { navProps } from "../../types/NavProps";
+import { NavProps } from "../../types/NavProps";
 
 import "./index.css";
 
-const Navbar: React.FC<navProps> = ({ isConnected }) => (
+const Navbar: React.FC<NavProps> = ({ isConnected }) => (
   <nav className="navbar">
     <Brand />
     <div className="navbar-menu">
