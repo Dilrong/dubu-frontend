@@ -1,7 +1,8 @@
 import React from "react";
 import Headline5 from "../../atoms/headline5";
+import SocialIcons from "../../molecules/socialIcons";
 import TvlBanner from "../../molecules/tvlBanner";
-import PotCard from "../../organisms/potcard";
+import PotCard from "../../organisms/potCard";
 
 import "./index.css";
 
@@ -14,6 +15,7 @@ const MainPot: React.FC = () => (
       <TvlBanner />
     </div>
     <PotCard />
+    <SocialIcons />
   </div>
 );
 

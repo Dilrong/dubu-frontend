@@ -1,0 +1,25 @@
+.grid-card {
+  display: grid;
+  background-color: var(--small-shadow);
+  box-shadow: none;
+  text-align: center;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: -8px;
+}
+
+.grid-item-left {
+  text-align: left;
+  padding: 8px;
+}
+
+.grid-item-right {
+  text-align: right;
+  padding: 8px;
+}

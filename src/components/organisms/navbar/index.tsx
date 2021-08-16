@@ -1,7 +1,7 @@
 import React from "react";
 import Brand from "../../atoms/brand";
 import Button from "../../atoms/button";
-import { navProps } from "../../types/navProps";
+import { navProps } from "../../types/NavProps";
 
 import "./index.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import SocialButton from "../../atoms/socialButton";
-import { socialButtonProps } from "../../types/socialButtonProps";
+import { socialButtonProps } from "../../types/SocialButtonProps";
 
 import "./index.css";
 

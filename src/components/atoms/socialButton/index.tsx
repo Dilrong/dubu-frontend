@@ -1,5 +1,5 @@
 import React from "react";
-import { socialButtonProps } from "../../types/socialButtonProps";
+import { socialButtonProps } from "../../types/SocialButtonProps";
 
 import "./index.css";
 

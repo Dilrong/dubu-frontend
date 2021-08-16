@@ -1,5 +1,5 @@
 import React from "react";
-import { TextStylesProps } from "../../types/textStylesProps";
+import { TextStylesProps } from "../../types/TextStylesProps";
 
 import "./index.css";
 
