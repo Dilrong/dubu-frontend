@@ -1,7 +1,7 @@
 import React from "react";
-import Headline4 from "../../atoms/headline4";
-import Body1 from "../../atoms/body1";
-import Button from "../../atoms/button";
+import Headline4 from "../../atoms/Headline4";
+import Body1 from "../../atoms/Body1";
+import Button from "../../atoms/Button";
 
 import "./index.css";
 import { TextCardProps } from "../../types/TextCardProps";
