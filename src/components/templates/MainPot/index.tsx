@@ -4,30 +4,41 @@ import Headline5 from "../../atoms/Headline5";
 import SocialIcons from "../../molecules/SocialIcons";
 import TvlBanner from "../../molecules/TvlBanner";
 import PotCard from "../../organisms/PotCard";
+import { useHistory } from "react-router-dom";
 
 import "./index.css";
 
-const MainPot: React.FC = () => (
-  <>
-    <div className="head-container">
-      <Headline5>
-        Deposit crypto, earn interest and a chance to win $531,900
-      </Headline5>
-      <TvlBanner />
-    </div>
-    <div className="tab-container">
-      <div className="tab-item">
-        <Button label="Main Pots" />
+const MainPot: React.FC = () => {
+  let history = useHistory();
+
+  return (
+    <>
+      <div className="head-container">
+        <Headline5>
+          Deposit crypto, earn interest and a chance to win $531,900
+        </Headline5>
+        <TvlBanner />
       </div>
-      <div className="tab-item">
-        <Button label="Community Pots" fill={false} />
+      <div className="tab-container">
+        <div className="tab-item">
+          <Button label="Main Pots" />
+        </div>
+        <div className="tab-item">
+          <Button
+            label="Community Pots"
+            fill={false}
+            onClick={() => {
+              history.push("/communityPots");
+            }}
+          />
+        </div>
       </div>
-    </div>
-    <div className="list-container">
-      <PotCard />
-    </div>
-    <SocialIcons />
-  </>
-);
+      <div className="list-container">
+        <PotCard />
+      </div>
+      <SocialIcons />
+    </>
+  );
+};
 
 export default MainPot;
