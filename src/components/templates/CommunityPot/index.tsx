@@ -7,6 +7,7 @@ import TextCard from "../../organisms/TextCard";
 import { useHistory } from "react-router-dom";
 
 import "./index.css";
+import Body1 from "../../atoms/Body1";
 
 const CommunityPot: React.FC = () => {
   let history = useHistory();
@@ -33,6 +34,14 @@ const CommunityPot: React.FC = () => {
           <Button label="Community Pots" />
         </div>
       </div>
+      <Headline5>Join the Community</Headline5>
+      <Body1>
+        There are no community pots yet. You can suggest a new pot in one of our
+      </Body1>
+      <Body1>
+        channels, or join our devs to build one for your favorite project.
+      </Body1>
+      <br />
       <div className="sns-container">
         <TextCard
           img="/assets/telegram.svg"

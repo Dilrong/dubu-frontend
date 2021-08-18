@@ -2,13 +2,12 @@ import React from "react";
 import Button from "../../atoms/Button";
 import Headline5 from "../../atoms/Headline5";
 import SocialIcons from "../../molecules/SocialIcons";
-import TvlBanner from "../../molecules/TvlBanner";
-import PotCard from "../../organisms/PotCard";
 import { useHistory } from "react-router-dom";
 
 import "./index.css";
+import TextCard from "../../organisms/TextCard";
 
-const MainPot: React.FC = () => {
+const MyPot: React.FC = () => {
   let history = useHistory();
 
   return (
@@ -17,28 +16,32 @@ const MainPot: React.FC = () => {
         <Headline5>
           Deposit crypto, earn interest and a chance to win $531,900
         </Headline5>
-        <TvlBanner />
       </div>
       <div className="tab-container">
         <div className="tab-item">
-          <Button label="Main Pots" />
+          <Button label="My Active Pots" />
         </div>
         <div className="tab-item">
           <Button
-            label="Community Pots"
+            label="My Past Pots"
             fill={false}
             onClick={() => {
-              history.push("/community-pots");
+              history.push("/my-dubupots/past-pots");
             }}
           />
         </div>
       </div>
       <div className="list-container">
-        <PotCard />
+        <TextCard
+          img="/assets/pot.png"
+          title="Connect Wallet"
+          body="Connect your wallet to join a Moonpot."
+          buttonLabel="Connect Wallet"
+        />
       </div>
       <SocialIcons />
     </>
   );
 };
 
-export default MainPot;
+export default MyPot;
