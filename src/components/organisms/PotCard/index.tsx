@@ -3,10 +3,13 @@ import Button from "../../atoms/Button";
 import Caption from "../../atoms/Caption";
 import Headline6 from "../../atoms/Headline6";
 import Subtitle1 from "../../atoms/Subtitle1";
+import { useHistory } from "react-router-dom";
 
 import "./index.css";
 
 const PotCard: React.FC = () => {
+  let history = useHistory();
+
   return (
     <div className="grid-card">
       <div className="grid-container">
@@ -51,7 +54,12 @@ const PotCard: React.FC = () => {
         </div>
       </div>
       <div className="grid-item-center">
-        <Button label="Play With POTS" />
+        <Button
+          label="Play With POTS"
+          onClick={() => {
+            history.push("/pot");
+          }}
+        />
         <Caption>1 in 991 odds per $1000 deposit</Caption>
       </div>
     </div>

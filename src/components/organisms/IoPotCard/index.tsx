@@ -5,9 +5,24 @@ import Headline6 from "../../atoms/Headline6";
 import Input from "../../atoms/Input";
 import Subtitle1 from "../../atoms/Subtitle1";
 
+/** material-ui */
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import List from "@material-ui/core/List";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import Collapse from "@material-ui/core/Collapse";
+
 import "./index.css";
 
 const IoPotCard: React.FC = () => {
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   return (
     <div className="grid-card">
       <div className="grid-container">
@@ -61,6 +76,46 @@ const IoPotCard: React.FC = () => {
         </Caption>
       </div>
       <hr />
+      <List disablePadding>
+        <ListItem button onClick={handleClick}>
+          <ListItemText primary="Withdraw" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={true} timeout="auto" unmountOnExit>
+          <List dense={true}>
+            <ListItem>
+              <ListItemText primary="My POTS" />
+              <ListItemSecondaryAction>
+                <ListItemText primary="0" />
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="My POTS" />
+              <ListItemSecondaryAction>
+                <ListItemText primary="0 POTS" />
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="My Earned POTS" />
+              <ListItemSecondaryAction>
+                <ListItemText primary="0 POTS" />
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="My Fairplay Timelock" />
+              <ListItemSecondaryAction>
+                <ListItemText primary="00d 00h 00m" />
+              </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="My Current Fairness Fee" />
+              <ListItemSecondaryAction>
+                <ListItemText primary="0.0000000000 POTS" />
+              </ListItemSecondaryAction>
+            </ListItem>
+          </List>
+        </Collapse>
+      </List>
     </div>
   );
 };
