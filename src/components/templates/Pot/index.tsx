@@ -1,16 +1,11 @@
 import React from "react";
-import Button from "../../atoms/Button";
 import Headline5 from "../../atoms/Headline5";
 import SocialIcons from "../../molecules/SocialIcons";
-import { useHistory } from "react-router-dom";
 
 import "./index.css";
-import TextCard from "../../organisms/TextCard";
 import IoPotCard from "../../organisms/IoPotCard";
 
 const Pot: React.FC = () => {
-  let history = useHistory();
-
   return (
     <>
       <div className="head-container">
