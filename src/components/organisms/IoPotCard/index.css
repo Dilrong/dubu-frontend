@@ -1,11 +1,11 @@
 .grid-card {
   display: grid;
-  background-color: var(--small-shadow);
-  box-shadow: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 8px;
   padding: 24px;
   margin: 16px;
+  max-width: 500px;
 }
 
 .grid-container {

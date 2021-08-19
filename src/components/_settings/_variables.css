@@ -38,8 +38,10 @@
   --info: #39c0ed;
   --warning: #ffa900;
   --error: #f93154;
-  /* --high-emphasis: rgba(255, 255, 255, 0.82); */
-  --high-emphasis: #000;
+  --high-emphasis: rgba(255, 255, 255, 0.82);
+  --medium-emphasis: rgba(255, 255, 255, 0.6);
+  --disabled-emphasis: rgba(255, 255, 255, 0.38);
+  --font: #000;
 
   --small-shadow: #212121;
   --regular-shadow: #303030;
