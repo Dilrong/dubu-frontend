@@ -1,76 +1,123 @@
 import React from "react";
-import Button from "../../atoms/Button";
-import Headline5 from "../../atoms/Headline5";
-import SocialIcons from "../../molecules/SocialIcons";
-import TvlBanner from "../../molecules/TvlBanner";
-import TextCard from "../../organisms/TextCard";
 import { useHistory } from "react-router-dom";
 
-import "./index.css";
-import Body1 from "../../atoms/Body1";
+/** material-ui */
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Button,
+  List,
+  ListItem,
+} from "@material-ui/core";
+
+interface SoicalCardProp {
+  img: string;
+  body: string;
+  label: string;
+  link: string;
+}
+
+const useStyles = makeStyles((theme) => ({
+  head: {
+    textAlign: "center",
+    marginBottom: theme.spacing(4),
+  },
+  socialCard: {
+    textAlign: "center",
+  },
+}));
 
 const CommunityPot: React.FC = () => {
-  let history = useHistory();
+  const history = useHistory();
+  const classes = useStyles();
+
+  const SocialCard = ({ img, body, label, link }: SoicalCardProp) => (
+    <Card className={classes.socialCard}>
+      <CardContent>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          alignContent="center"
+        >
+          <Grid item spacing={3}>
+            <img src={img} alt={img} width="64" />
+          </Grid>
+          <List>
+            <Typography>{body}</Typography>
+            <ListItem>
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth={true}
+                onClick={() => {
+                  history.push(link);
+                }}
+              >
+                {label}
+              </Button>
+            </ListItem>
+          </List>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
 
   return (
     <>
-      <div className="head-container">
-        <Headline5>
-          Deposit crypto, earn interest and a chance to win $531,900
-        </Headline5>
-        <TvlBanner />
-      </div>
-      <div className="tab-container">
-        <div className="tab-item">
-          <Button
-            label="Main Pots"
-            fill={false}
-            onClick={() => {
-              history.push("/");
-            }}
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+        className={classes.head}
+      >
+        <img src="assets/pot.png" alt="pot" width="150" />
+        <Typography variant="h5">Join the Community</Typography>
+        <Typography variant="body1">
+          There are no community pots yet. You can suggest a new pot in one of
+          our
+          <br />
+          channels, or join our devs to build one for your favorite project.
+        </Typography>
+      </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+        spacing={3}
+      >
+        <Grid item xs={4} spacing={3}>
+          <SocialCard
+            img="/assets/telegram.svg"
+            body="Learn about Moonpot and get direct support from the community"
+            label="Join Our Telegram"
+            link=""
           />
-        </div>
-        <div className="tab-item">
-          <Button label="Community Pots" />
-        </div>
-      </div>
-      <Headline5>Join the Community</Headline5>
-      <Body1>
-        There are no community pots yet. You can suggest a new pot in one of our
-      </Body1>
-      <Body1>
-        channels, or join our devs to build one for your favorite project.
-      </Body1>
-      <br />
-      <div className="sns-container">
-        <TextCard
-          img="/assets/telegram.svg"
-          width={75}
-          height={75}
-          title="Telegram"
-          body="Learn about Dubupot and get direct support 
-from the community"
-          buttonLabel="Join our Telegram"
-        />
-        <TextCard
-          img="/assets/discord.svg"
-          width={75}
-          height={75}
-          title="Discord"
-          body="Joim the conversation with our active
-        community of developers"
-          buttonLabel="Join our Discord"
-        />
-        <TextCard
-          img="/assets/twitter.svg"
-          width={75}
-          height={75}
-          title="Twitter"
-          body="Get the latest updates and take part in social media giveaways"
-          buttonLabel="Follow our Twitter"
-        />
-      </div>
-      <SocialIcons />
+        </Grid>
+        <Grid item xs={4} spacing={3}>
+          <SocialCard
+            img="/assets/discord.svg"
+            body="Join the conversation with our active community of developers"
+            label="Join Our Discord"
+            link=""
+          />
+        </Grid>
+        <Grid item xs={4} spacing={3}>
+          <SocialCard
+            img="/assets/twitter.svg"
+            body="Get the latest updates and take part in social media giveaways"
+            label="Follow our Twitter"
+            link=""
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };

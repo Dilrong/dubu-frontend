@@ -1,42 +1,83 @@
 import React from "react";
-import Button from "../../atoms/Button";
-import Headline5 from "../../atoms/Headline5";
-import SocialIcons from "../../molecules/SocialIcons";
-import TvlBanner from "../../molecules/TvlBanner";
 import PotCard from "../../organisms/PotCard";
-import { useHistory } from "react-router-dom";
 
-import "./index.css";
+/** material-ui */
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Tabs,
+  Tab,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  card: {
+    maxWidth: 500,
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "baseline",
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
+  },
+  tab: {
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const MainPot: React.FC = () => {
-  let history = useHistory();
+  const classes = useStyles();
 
   return (
     <>
-      <div className="head-container">
-        <Headline5>
-          Deposit crypto, earn interest and a chance to win $531,900
-        </Headline5>
-        <TvlBanner />
-      </div>
-      <div className="tab-container">
-        <div className="tab-item">
-          <Button label="Main Pots" />
-        </div>
-        <div className="tab-item">
-          <Button
-            label="Community Pots"
-            fill={false}
-            onClick={() => {
-              history.push("/community-pots");
-            }}
-          />
-        </div>
-      </div>
-      <div className="list-container">
-        <PotCard />
-      </div>
-      <SocialIcons />
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+      >
+        <Grid item>
+          <Typography variant="h5">
+            Deposit crypto, earn interest and a chance to win $531,900
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography variant="body2">TOTAL DEPOSITS (TVL)</Typography>
+              <Typography color="primary" variant="h4">
+                $68,566,995
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Tabs className={classes.tab}>
+            <Tab label="Main Pots" value="1" />
+            <Tab label="Community Pots" value="2" />
+          </Tabs>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+        className={classes.root}
+        spacing={2}
+      >
+        <Grid item xs={4} spacing={3}>
+          <PotCard />
+        </Grid>
+      </Grid>
     </>
   );
 };

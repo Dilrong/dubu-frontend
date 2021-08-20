@@ -1,28 +1,71 @@
 import React from "react";
 import "./bootstrap";
-import Navbar from "./components/organisms/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPot from "./components/templates/MainPot";
 import CommunityPot from "./components/templates/CommunityPot";
 import MyPot from "./components/templates/MyPot";
-import MyPastPot from "./components/templates/MyPastPot";
 import Pot from "./components/templates/Pot";
+import Header from "./components/organisms/Header";
 
-function App() {
-  return (
-    <Router basename="/index.html">
-      <Navbar isConnected />
-      <div className="container">
-        <Switch>
-          <Route exact path="/" component={MainPot} />
-          <Route path="/community-pots" component={CommunityPot} />
-          <Route exact path="/my-dubupots" component={MyPot} />
-          <Route path="/my-dubupots/past-pots" component={MyPastPot} />
-          <Route path="/pot" component={Pot} />
-        </Switch>
-      </div>
-    </Router>
+/** material-ui */
+import {
+  ThemeProvider,
+  createTheme,
+  makeStyles,
+} from "@material-ui/core/styles";
+import { CssBaseline, Container, useMediaQuery } from "@material-ui/core";
+import SocialIcons from "./components/molecules/SocialIcons";
+
+const useStyles = makeStyles((theme) => ({
+  root: { height: "100%", padding: theme.spacing(8, 0, 6) },
+}));
+
+const App = () => {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const classes = useStyles();
+
+  const theme = createTheme(
+    {
+      palette: {
+        type: "light",
+        primary: {
+          light: "#735858",
+          main: "#371110",
+          dark: "#2a0c0c",
+        },
+        secondary: {
+          light: "#dae6f0",
+          main: "#cadbe9",
+          dark: "#bdd2e3",
+        },
+        background: {
+          default: "#fff",
+        },
+      },
+      typography: {
+        fontFamily: ["Ubuntu"].join(","),
+      },
+    },
+    [prefersDarkMode]
   );
-}
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header />
+      <Container className={classes.root} component="main">
+        <Router basename="/index.html">
+          <Switch>
+            <Route exact path="/" component={MainPot} />
+            <Route path="/community-pots" component={CommunityPot} />
+            <Route path="/my-dubupots" component={MyPot} />
+            <Route path="/pot" component={Pot} />
+          </Switch>
+        </Router>
+      </Container>
+      <SocialIcons />
+    </ThemeProvider>
+  );
+};
 
 export default App;

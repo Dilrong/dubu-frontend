@@ -1,45 +1,83 @@
 import React from "react";
-import Button from "../../atoms/Button";
-import Headline5 from "../../atoms/Headline5";
-import SocialIcons from "../../molecules/SocialIcons";
-import { useHistory } from "react-router-dom";
+import NotConnectCard from "../../organisms/NotConnectCard";
 
-import "./index.css";
-import TextCard from "../../organisms/TextCard";
+/** material-ui */
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Tabs,
+  Tab,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  card: {
+    maxWidth: 500,
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "baseline",
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
+  },
+  tab: {
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const MyPot: React.FC = () => {
-  let history = useHistory();
+  const classes = useStyles();
 
   return (
     <>
-      <div className="head-container">
-        <Headline5>
-          Deposit crypto, earn interest and a chance to win $531,900
-        </Headline5>
-      </div>
-      <div className="tab-container">
-        <div className="tab-item">
-          <Button label="My Active Pots" />
-        </div>
-        <div className="tab-item">
-          <Button
-            label="My Past Pots"
-            fill={false}
-            onClick={() => {
-              history.push("/my-dubupots/past-pots");
-            }}
-          />
-        </div>
-      </div>
-      <div className="list-container">
-        <TextCard
-          img="/assets/pot.png"
-          title="Connect Wallet"
-          body="Connect your wallet to join a Moonpot."
-          buttonLabel="Connect Wallet"
-        />
-      </div>
-      <SocialIcons />
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+      >
+        <Grid item>
+          <Typography variant="h5">
+            Deposit crypto, earn interest and a chance to win $531,900
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography variant="body2">TOTAL DEPOSITS (TVL)</Typography>
+              <Typography color="primary" variant="h4">
+                $68,566,995
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Tabs className={classes.tab}>
+            <Tab label="My Active Pots" value="1" />
+            <Tab label="My Past Pots" value="2" />
+          </Tabs>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        alignContent="center"
+        className={classes.root}
+        spacing={2}
+      >
+        <Grid item xs={4} spacing={3}>
+          <NotConnectCard />
+        </Grid>
+      </Grid>
     </>
   );
 };

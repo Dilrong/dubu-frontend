@@ -1,22 +1,40 @@
 import React from "react";
-import Headline5 from "../../atoms/Headline5";
-import SocialIcons from "../../molecules/SocialIcons";
-
-import "./index.css";
 import IoPotCard from "../../organisms/IoPotCard";
 
+/** material-ui */
+import { Grid, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    textAlign: "center",
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
+}));
+
 const Pot: React.FC = () => {
+  const classes = useStyles();
+
   return (
-    <>
-      <div className="head-container">
-        <Headline5>
-          Deposit crypto, earn interest and a chance to win $531,900
-        </Headline5>
-      </div>
-      <div className="list-container"></div>
-      <IoPotCard />
-      <SocialIcons />
-    </>
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      alignContent="center"
+    >
+      <Grid item className={classes.header}>
+        <Typography variant="h5">
+          Deposit POTS, earn 192.28% APY
+          <br />
+          and a chance to win $771,323
+        </Typography>
+      </Grid>
+      <Grid item>
+        <IoPotCard />
+      </Grid>
+    </Grid>
   );
 };
 
