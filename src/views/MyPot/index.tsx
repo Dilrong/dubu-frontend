@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import TabPanel from "../../molecules/TabPanel";
-import PotCard from "../../organisms/PotCard";
+import TabPanel from "../../components/TabPanel";
+import NotConnectCard from "../../components/NotConnectCard";
 
 /** material-ui */
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,7 +12,6 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import CommunityPot from "../CommunityPot";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +40,7 @@ const a11yProps = (index: number) => {
   };
 };
 
-const MainPot: React.FC = () => {
+const MyPot: React.FC = () => {
   const classes = useStyles();
   const [tab, setTab] = useState(0);
 
@@ -80,8 +79,8 @@ const MainPot: React.FC = () => {
             onChange={handleChange}
             className={classes.tab}
           >
-            <Tab label="Main Pots" {...a11yProps(0)} />
-            <Tab label="Community Pots" {...a11yProps(1)} />
+            <Tab label="My Active Pots" {...a11yProps(0)} />
+            <Tab label="My Past Pots" {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>
@@ -95,15 +94,12 @@ const MainPot: React.FC = () => {
       >
         <Grid item xs={4}>
           <TabPanel value={tab} index={0}>
-            <PotCard />
+            <NotConnectCard />
           </TabPanel>
         </Grid>
-        <TabPanel value={tab} index={1}>
-          <CommunityPot />
-        </TabPanel>
       </Grid>
     </>
   );
 };
 
-export default MainPot;
+export default MyPot;

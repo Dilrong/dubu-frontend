@@ -1,5 +1,5 @@
 import React from "react";
-import IoPotCard from "../../organisms/IoPotCard";
+import IoPotCard from "../../components/IoPotCard";
 
 /** material-ui */
 import { Grid, Typography } from "@material-ui/core";

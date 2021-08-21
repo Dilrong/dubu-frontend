@@ -1,9 +1,0 @@
-@import "../../_settings/_variables.css";
-
-.Headline5 {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 26px;
-  color: var(--font);
-}

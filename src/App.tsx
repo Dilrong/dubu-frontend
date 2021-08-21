@@ -1,13 +1,13 @@
 import React from "react";
-import "./bootstrap";
 import { Web3ReactProvider } from "@web3-react/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UseWalletProvider } from "@binance-chain/bsc-use-wallet";
 import getLibrary from "./utils/getLibrary";
-import MainPot from "./components/templates/MainPot";
-import CommunityPot from "./components/templates/CommunityPot";
-import MyPot from "./components/templates/MyPot";
-import Pot from "./components/templates/Pot";
-import Header from "./components/organisms/Header";
+import MainPot from "./views/MainPot";
+import MyPot from "./views/MyPot";
+import Pot from "./views/Pot";
+import NotFound from "./views/NotFound";
+import Header from "./components/Header";
 
 /** material-ui */
 import {
@@ -16,8 +16,7 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 import { CssBaseline, Container, useMediaQuery } from "@material-ui/core";
-import SocialIcons from "./components/molecules/SocialIcons";
-import NotFound from "./components/templates/NotFound";
+import SocialIcons from "./components/SocialIcons";
 
 const useStyles = makeStyles((theme) => ({
   root: { height: "100%", padding: theme.spacing(8, 0, 6) },
@@ -54,22 +53,29 @@ const App = () => {
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header />
-        <Container className={classes.root} component="main">
-          <Router basename="/index.html">
-            <Switch>
-              <Route exact path="/" component={MainPot} />
-              <Route path="/community-pots" component={CommunityPot} />
-              <Route path="/my-dubupots" component={MyPot} />
-              <Route path="/pot" component={Pot} />
-              <Route path={"*"} component={NotFound} />
-            </Switch>
-          </Router>
-        </Container>
-        <SocialIcons />
-      </ThemeProvider>
+      <UseWalletProvider
+        chainId={56}
+        connectors={{
+          walletconnect: { rpcUrl: "https://bsc-dataseed.binance.org/" },
+        }}
+      >
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Header />
+          <Container className={classes.root} component="main">
+            <Router basename="/index.html">
+              <Switch>
+                <Route exact path="/" component={MainPot} />
+                <Route path="/my-dubupots" component={MyPot} />
+                <Route path="/pot" component={Pot} />
+
+                <Route path={"*"} component={NotFound} />
+              </Switch>
+            </Router>
+          </Container>
+          <SocialIcons />
+        </ThemeProvider>
+      </UseWalletProvider>
     </Web3ReactProvider>
   );
 };
