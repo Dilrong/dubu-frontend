@@ -3283,7 +3283,7 @@
   dependencies:
     deepmerge "^4.2.2"
 
-"@toruslabs/torus-embed@^1.12.2", "@toruslabs/torus-embed@^1.8.0":
+"@toruslabs/torus-embed@^1.8.0":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@toruslabs/torus-embed/-/torus-embed-1.12.2.tgz#36081ea1547f4f7ffe411cb134a6c21b18c6616c"
   integrity sha512-KmLCCX/WziXgrwHcQUMLVwku3V0ymjMRUicEN0Bv5dQY1hj7RnDEHpI7tizWs4iZfFJwhQXLMuRRf7L/O04U/w==
