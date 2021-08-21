@@ -1,17 +1,35 @@
 import React from "react";
 
-import "./index.css";
-
 /** material-ui */
+import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 
+/*
+.SocialIcons {
+  margin-top: 1rem;
+  justify-content: center;
+  display: flex;
+  padding: 12px 0;
+}
+
+*/
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: 1,
+    justifyContent: "center",
+  },
+}));
+
 const SocialIcons: React.FC = () => {
+  const classes = useStyles();
+
   return (
-    <div className="SocialIcons">
+    <Grid container className={classes.root}>
       <IconButton>
         <GitHubIcon />
       </IconButton>
@@ -26,7 +44,7 @@ const SocialIcons: React.FC = () => {
       <IconButton>
         <TwitterIcon />
       </IconButton>
-    </div>
+    </Grid>
   );
 };
 

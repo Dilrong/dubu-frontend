@@ -3,12 +3,13 @@ import { useHistory } from "react-router-dom";
 
 /** material-ui */
 import { Typography, Grid, Button } from "@material-ui/core";
+import Layout from "../Layout";
 
 const NotFound: React.FC = () => {
   const history = useHistory();
 
   return (
-    <>
+    <Layout>
       <Grid
         container
         direction="column"
@@ -33,7 +34,7 @@ const NotFound: React.FC = () => {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </Layout>
   );
 };
 

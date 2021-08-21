@@ -13,6 +13,7 @@ import {
   Tab,
 } from "@material-ui/core";
 import CommunityPot from "../../components/CommunityPot";
+import Layout from "../Layout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +51,7 @@ const MainPot: React.FC = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Grid
         container
         direction="column"
@@ -102,7 +103,7 @@ const MainPot: React.FC = () => {
           <CommunityPot />
         </TabPanel>
       </Grid>
-    </>
+    </Layout>
   );
 };
 

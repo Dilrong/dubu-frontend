@@ -93,7 +93,7 @@ const CommunityPot: React.FC = () => {
         alignContent="center"
         spacing={3}
       >
-        <Grid item xs={4} spacing={3}>
+        <Grid item xs={4}>
           <SocialCard
             img="/assets/telegram.svg"
             body="Learn about Moonpot and get direct support from the community"
@@ -101,7 +101,7 @@ const CommunityPot: React.FC = () => {
             link=""
           />
         </Grid>
-        <Grid item xs={4} spacing={3}>
+        <Grid item xs={4}>
           <SocialCard
             img="/assets/discord.svg"
             body="Join the conversation with our active community of developers"
@@ -109,7 +109,7 @@ const CommunityPot: React.FC = () => {
             link=""
           />
         </Grid>
-        <Grid item xs={4} spacing={3}>
+        <Grid item xs={4}>
           <SocialCard
             img="/assets/twitter.svg"
             body="Get the latest updates and take part in social media giveaways"

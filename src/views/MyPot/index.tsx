@@ -12,6 +12,7 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+import Layout from "../Layout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,7 @@ const MyPot: React.FC = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Grid
         container
         direction="column"
@@ -98,7 +99,7 @@ const MyPot: React.FC = () => {
           </TabPanel>
         </Grid>
       </Grid>
-    </>
+    </Layout>
   );
 };
 
