@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import TabPanel from "../../molecules/TabPanel";
 import NotConnectCard from "../../organisms/NotConnectCard";
 
 /** material-ui */
@@ -32,8 +33,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const a11yProps = (index: number) => {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+};
+
 const MyPot: React.FC = () => {
   const classes = useStyles();
+  const [tab, setTab] = useState(0);
+
+  const handleChange = (_event: any, newValue: any) => {
+    setTab(newValue);
+  };
 
   return (
     <>
@@ -60,9 +73,14 @@ const MyPot: React.FC = () => {
           </Card>
         </Grid>
         <Grid item>
-          <Tabs className={classes.tab}>
-            <Tab label="My Active Pots" value="1" />
-            <Tab label="My Past Pots" value="2" />
+          <Tabs
+            variant="fullWidth"
+            value={tab}
+            onChange={handleChange}
+            className={classes.tab}
+          >
+            <Tab label="My Active Pots" {...a11yProps(0)} />
+            <Tab label="My Past Pots" {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>
@@ -74,8 +92,10 @@ const MyPot: React.FC = () => {
         className={classes.root}
         spacing={2}
       >
-        <Grid item xs={4} spacing={3}>
-          <NotConnectCard />
+        <Grid item xs={4}>
+          <TabPanel value={tab} index={0}>
+            <NotConnectCard />
+          </TabPanel>
         </Grid>
       </Grid>
     </>

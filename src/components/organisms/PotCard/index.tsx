@@ -60,8 +60,6 @@ const PotCard: React.FC = () => {
               secondary={<Typography variant="h6">10 Winners</Typography>}
             />
           </ListItem>
-        </List>
-        <List>
           <ListItem>
             <Button
               variant="contained"
