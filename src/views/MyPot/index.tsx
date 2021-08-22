@@ -13,6 +13,7 @@ import {
   Tab,
 } from "@material-ui/core";
 import Layout from "../Layout";
+import NoActiveCard from "../../components/NoActiveCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,6 +97,9 @@ const MyPot: React.FC = () => {
         <Grid item xs={4}>
           <TabPanel value={tab} index={0}>
             <NotConnectCard />
+          </TabPanel>
+          <TabPanel value={tab} index={1}>
+            <NoActiveCard />
           </TabPanel>
         </Grid>
       </Grid>

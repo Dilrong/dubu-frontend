@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
-import { AppBar, Toolbar, Link, Button } from "@material-ui/core";
+import { AppBar, Toolbar, Button } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import truncateWalletAddress from "../../utils/truncateWalletAddress";
 import useAuth from "../../hooks/useAuth";
@@ -13,6 +14,16 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    textDecoration: "none",
+    color: "gray",
+    fontWeight: "bold",
+    "&:hover": {
+      color: "#735858",
+    },
+  },
+  selected: {
+    color: "#371110",
+    fontWeight: "bold",
   },
   connected: {
     margin: theme.spacing(1, 1.5),
@@ -47,51 +58,39 @@ const Header = () => {
       >
         <Toolbar>
           <div className={classes.logo}>
-            <a href="/">
+            <NavLink to="/">
               <img src="/assets/logo.png" alt="Logo" />
-            </a>
+            </NavLink>
           </div>
           <nav>
-            <Link
-              variant="button"
-              color="textPrimary"
-              href="/"
+            <NavLink
+              to="/"
+              exact
+              activeClassName={classes.selected}
               className={classes.link}
             >
               DubuPot
-            </Link>
-            <Link
-              variant="button"
-              color="textPrimary"
-              href="/my-dubupots"
+            </NavLink>
+            <NavLink
+              to="/my-dubupots"
+              exact
+              activeClassName={classes.selected}
               className={classes.link}
             >
               My Pots
-            </Link>
-            <Link
-              variant="button"
-              color="textPrimary"
+            </NavLink>
+            <a
               href="https://dubu-finance.gitbook.io/dubu-finance/"
               className={classes.link}
             >
               Docs
-            </Link>
+            </a>
             {account === undefined ? (
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.link}
-                onClick={handleOpen}
-              >
+              <Button variant="outlined" color="primary" onClick={handleOpen}>
                 Connect Wallet
               </Button>
             ) : (
-              <Button
-                variant="outlined"
-                color="primary"
-                className={classes.link}
-                onClick={logout}
-              >
+              <Button variant="outlined" color="primary" onClick={logout}>
                 {truncateWalletAddress(account!)}
               </Button>
             )}

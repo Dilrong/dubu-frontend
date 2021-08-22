@@ -7,22 +7,22 @@ export enum ConnectorNames {
 const connectors = [
   {
     title: "Meta Mask",
-    logo: "./assets/metamask.svg",
+    logo: "/assets/metamask.svg",
     connectorId: ConnectorNames.Injected,
   },
   {
     title: "Trust Wallet",
-    logo: "./assets/trustwallet.svg",
+    logo: "/assets/trustwallet.svg",
     connectorId: ConnectorNames.Injected,
   },
   {
     title: "SafePal Wallet",
-    logo: "./assets/safepal.svg",
+    logo: "/assets/safepal.svg",
     connectorId: ConnectorNames.Injected,
   },
   {
     title: "Binance Chain Wallet",
-    logo: "./assets/binanceChain.svg",
+    logo: "/assets/binanceChain.svg",
     connectorId: ConnectorNames.BSC,
   },
   // {

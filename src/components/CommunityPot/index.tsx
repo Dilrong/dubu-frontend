@@ -77,7 +77,7 @@ const CommunityPot: React.FC = () => {
         alignContent="center"
         className={classes.head}
       >
-        <img src="assets/pot.png" alt="pot" width="150" />
+        <img src="/assets/pot.png" alt="pot" width="150" />
         <Typography variant="h5">Join the Community</Typography>
         <Typography variant="body1">
           There are no community pots yet. You can suggest a new pot in one of

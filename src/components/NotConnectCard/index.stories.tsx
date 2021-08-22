@@ -1,6 +1,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-import PotCard from ".";
+import NotConnectCard from ".";
 
-storiesOf("Organisms/PotCard", module).add("default", () => <PotCard />);
+storiesOf("Organisms/NotConnectCard", module).add("default", () => (
+  <NotConnectCard />
+));
