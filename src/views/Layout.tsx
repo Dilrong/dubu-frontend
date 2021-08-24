@@ -1,5 +1,6 @@
 import React from "react";
 
+import Header from "../components/Header";
 import SocialIcons from "../components/SocialIcons";
 
 /** material-ui */
@@ -17,6 +18,7 @@ const Layout: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 
   return (
     <>
+      <Header />
       <Container className={classes.root} component="main">
         {children!}
       </Container>

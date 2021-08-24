@@ -1,7 +1,7 @@
 import React from "react";
 import { Dialog, DialogContent, Grid, DialogTitle } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import connectors from "../../config/wallet";
+import connectors from "../../config/constants/wallet";
 import WalletButton from "./WalletButton";
 import { Login } from "./types";
 

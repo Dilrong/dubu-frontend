@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Button, Typography } from "@material-ui/core";
-import { connectorLocalStorageKey } from "../../config/wallet";
+import { connectorLocalStorageKey } from "../../config/constants/wallet";
 import { Login, Config } from "./types";
 
 interface Props {

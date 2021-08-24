@@ -1,5 +1,8 @@
 import { useEffect } from "react";
-import { connectorLocalStorageKey, ConnectorNames } from "../config/wallet";
+import {
+  connectorLocalStorageKey,
+  ConnectorNames,
+} from "../config/constants/wallet";
 import useAuth from "./useAuth";
 
 const _binanceChainListener = async () =>
@@ -23,7 +26,6 @@ const useEagerConnect = () => {
     const connectorId = window.localStorage.getItem(
       connectorLocalStorageKey
     ) as ConnectorNames;
-    console.log(connectorId);
     if (connectorId) {
       const isConnectorBinanceChain = connectorId === ConnectorNames.BSC;
       const isBinanceChainDefined = Reflect.has(window, "BinanceChain");

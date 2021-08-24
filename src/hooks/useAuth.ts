@@ -9,7 +9,10 @@ import {
   UserRejectedRequestError as UserRejectedRequestErrorWalletConnect,
   WalletConnectConnector,
 } from "@web3-react/walletconnect-connector";
-import { ConnectorNames, connectorLocalStorageKey } from "../config/wallet";
+import {
+  ConnectorNames,
+  connectorLocalStorageKey,
+} from "../config/constants/wallet";
 import { connectorsByName } from "../utils/web3React";
 // import { useAppDispatch } from "state";
 import { setupNetwork } from "../utils/wallet";

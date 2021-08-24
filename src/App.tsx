@@ -2,8 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CssBaseline } from "@material-ui/core";
 
-import Header from "./components/Header";
-
 import useEagerConnect from "./hooks/useEagerConnect";
 
 import MainPot from "./views/MainPot";
@@ -17,7 +15,6 @@ const App = () => {
   return (
     <Router basename="/index.html">
       <CssBaseline />
-      <Header />
       <Switch>
         <Route exact path="/" component={MainPot} />
         <Route path="/my-dubupots" component={MyPot} />

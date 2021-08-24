@@ -81,9 +81,7 @@ const CommunityPot: React.FC = () => {
         <Typography variant="h5">Join the Community</Typography>
         <Typography variant="body1">
           There are no community pots yet. You can suggest a new pot in one of
-          our
-          <br />
-          channels, or join our devs to build one for your favorite project.
+          our channels, or join our devs to build one for your favorite project.
         </Typography>
       </Grid>
       <Grid
@@ -93,15 +91,15 @@ const CommunityPot: React.FC = () => {
         alignContent="center"
         spacing={3}
       >
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/telegram.svg"
-            body="Learn about Moonpot and get direct support from the community"
+            body="Learn about Dubupot and get direct support from the community"
             label="Join Our Telegram"
             link=""
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/discord.svg"
             body="Join the conversation with our active community of developers"
@@ -109,7 +107,7 @@ const CommunityPot: React.FC = () => {
             link=""
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/twitter.svg"
             body="Get the latest updates and take part in social media giveaways"

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import TabPanel from "../../components/TabPanel";
-import PotCard from "../../components/PotCard";
 
 /** material-ui */
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,12 +10,18 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+
+import TabPanel from "../../components/TabPanel";
+import PotCard from "../../components/MainPotCard";
 import CommunityPot from "../../components/CommunityPot";
 import Layout from "../Layout";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  container: {
     flexGrow: 1,
+  },
+  headerText: {
+    margin: theme.spacing(2),
   },
   card: {
     maxWidth: 500,
@@ -58,8 +62,9 @@ const MainPot: React.FC = () => {
         justifyContent="center"
         alignItems="center"
         alignContent="center"
+        spacing={3}
       >
-        <Grid item>
+        <Grid item className={classes.headerText}>
           <Typography variant="h5">
             Deposit crypto, earn interest and a chance to win $531,900
           </Typography>
@@ -91,10 +96,10 @@ const MainPot: React.FC = () => {
         justifyContent="center"
         alignItems="center"
         alignContent="center"
-        className={classes.root}
+        className={classes.container}
         spacing={2}
       >
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TabPanel value={tab} index={0}>
             <PotCard />
           </TabPanel>
