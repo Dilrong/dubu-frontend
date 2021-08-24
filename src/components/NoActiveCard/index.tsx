@@ -16,25 +16,25 @@ const NoActiveCard: React.FC = () => {
       <CardContent>
         <Grid
           container
-          direction="column"
           justifyContent="center"
           alignItems="center"
           alignContent="center"
-          xs={12}
-          spacing={4}
+          spacing={3}
         >
-          <img className={classes.media} src="/assets/pot.png" alt="Pot" />
+          <Grid item>
+            <img className={classes.media} src="/assets/pot.png" alt="Pot" />
+          </Grid>
           <Grid item>
             <Typography variant="h6">Play with Dubupot</Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body1">
+            <Typography style={{ textAlign: "center" }}>
               You haven't entered any Moonpots yet.
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" color="primary" fullWidth={true}>
-              Play
+              Let's Dubu
             </Button>
           </Grid>
         </Grid>

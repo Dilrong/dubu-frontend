@@ -9,6 +9,7 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+import { Helmet } from "react-helmet";
 
 import Layout from "../Layout";
 import NoActiveCard from "../../components/NoActiveCard";
@@ -56,6 +57,9 @@ const MyPot: React.FC = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>MyPot</title>
+      </Helmet>
       <Grid
         container
         direction="column"
@@ -86,8 +90,8 @@ const MyPot: React.FC = () => {
             onChange={handleChange}
             className={classes.tab}
           >
-            <Tab label="Main Pots" {...a11yProps(0)} />
-            <Tab label="Community Pots" {...a11yProps(1)} />
+            <Tab label="My Active Pots" {...a11yProps(0)} />
+            <Tab label="My Past Pots" {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>

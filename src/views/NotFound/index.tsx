@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
-/** material-ui */
 import { Typography, Grid, Button } from "@material-ui/core";
+import { Helmet } from "react-helmet";
+
 import Layout from "../Layout";
 
 const NotFound: React.FC = () => {
@@ -10,6 +10,9 @@ const NotFound: React.FC = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>404</title>
+      </Helmet>
       <Grid
         container
         direction="column"

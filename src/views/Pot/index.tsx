@@ -1,10 +1,10 @@
 import React from "react";
-import DepositPotCard from "../../components/DepositPotCard";
-
-/** material-ui */
 import { Grid, Typography, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Helmet } from "react-helmet";
+
 import Layout from "../Layout";
+import DepositPotCard from "../../components/DepositPotCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,6 +25,9 @@ const Pot: React.FC = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Pot</title>
+      </Helmet>
       <Grid
         container
         direction="column"

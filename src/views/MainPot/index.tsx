@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-/** material-ui */
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
@@ -10,6 +8,7 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+import { Helmet } from "react-helmet";
 
 import TabPanel from "../../components/TabPanel";
 import PotCard from "../../components/MainPotCard";
@@ -56,6 +55,9 @@ const MainPot: React.FC = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Grid
         container
         direction="column"
