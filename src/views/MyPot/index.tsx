@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import TabPanel from "../../components/TabPanel";
-import NotConnectCard from "../../components/NotConnectCard";
-
-/** material-ui */
+import { useWeb3React } from "@web3-react/core";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
@@ -12,12 +9,18 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+
 import Layout from "../Layout";
 import NoActiveCard from "../../components/NoActiveCard";
+import TabPanel from "../../components/TabPanel";
+import NotConnectCard from "../../components/NotConnectCard";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  container: {
     flexGrow: 1,
+  },
+  headerText: {
+    margin: theme.spacing(2),
   },
   card: {
     maxWidth: 500,
@@ -44,6 +47,7 @@ const a11yProps = (index: number) => {
 
 const MyPot: React.FC = () => {
   const classes = useStyles();
+  const { account } = useWeb3React();
   const [tab, setTab] = useState(0);
 
   const handleChange = (_event: any, newValue: any) => {
@@ -58,8 +62,9 @@ const MyPot: React.FC = () => {
         justifyContent="center"
         alignItems="center"
         alignContent="center"
+        spacing={3}
       >
-        <Grid item>
+        <Grid item className={classes.headerText}>
           <Typography variant="h5">
             Deposit crypto, earn interest and a chance to win $531,900
           </Typography>
@@ -81,8 +86,8 @@ const MyPot: React.FC = () => {
             onChange={handleChange}
             className={classes.tab}
           >
-            <Tab label="My Active Pots" {...a11yProps(0)} />
-            <Tab label="My Past Pots" {...a11yProps(1)} />
+            <Tab label="Main Pots" {...a11yProps(0)} />
+            <Tab label="Community Pots" {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>
@@ -91,15 +96,15 @@ const MyPot: React.FC = () => {
         justifyContent="center"
         alignItems="center"
         alignContent="center"
-        className={classes.root}
+        className={classes.container}
         spacing={2}
       >
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4}>
           <TabPanel value={tab} index={0}>
-            <NotConnectCard />
+            {account === undefined ? <NotConnectCard /> : <NoActiveCard />}
           </TabPanel>
           <TabPanel value={tab} index={1}>
-            <NoActiveCard />
+            {account === undefined ? <NotConnectCard /> : <NoActiveCard />}
           </TabPanel>
         </Grid>
       </Grid>

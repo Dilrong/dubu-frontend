@@ -14,11 +14,11 @@ import {
   connectorLocalStorageKey,
 } from "../config/constants/wallet";
 import { connectorsByName } from "../utils/web3React";
-// import { useAppDispatch } from "state";
+import { useSnackbar } from "material-ui-snackbar-provider";
 import { setupNetwork } from "../utils/wallet";
 
 const useAuth = () => {
-  // const dispatch = useAppDispatch();
+  const snackbar = useSnackbar();
   const { activate, deactivate } = useWeb3React();
 
   const login = useCallback(
@@ -30,6 +30,7 @@ const useAuth = () => {
           if (error instanceof UnsupportedChainIdError) {
             const hasSetup = await setupNetwork();
             if (hasSetup) {
+              snackbar.showMessage("Connect Wallet");
               activate(connector);
             }
           } else {
@@ -47,17 +48,17 @@ const useAuth = () => {
                 const walletConnector = connector as WalletConnectConnector;
                 walletConnector.walletConnectProvider = null;
               }
-              console.log("Authorization Error");
+              snackbar.showMessage("Authorization Error");
             } else {
-              console.log(error);
+              snackbar.showMessage(error.message);
             }
           }
         });
       } else {
-        console.log("Unable to find connector");
+        snackbar.showMessage("Unable to find connector");
       }
     },
-    [activate]
+    [activate, snackbar]
   );
 
   const logout = useCallback(() => {

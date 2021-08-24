@@ -20,7 +20,8 @@ const NoActiveCard: React.FC = () => {
           justifyContent="center"
           alignItems="center"
           alignContent="center"
-          spacing={2}
+          xs={12}
+          spacing={4}
         >
           <img className={classes.media} src="/assets/pot.png" alt="Pot" />
           <Grid item>
@@ -31,7 +32,7 @@ const NoActiveCard: React.FC = () => {
               You haven't entered any Moonpots yet.
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <Button variant="contained" color="primary" fullWidth={true}>
               Play
             </Button>

@@ -1,6 +1,8 @@
 import { Web3ReactProvider } from "@web3-react/core";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { SnackbarProvider } from "material-ui-snackbar-provider";
 import { useMediaQuery } from "@material-ui/core";
+import ModalProvider from "mui-modal-provider";
 
 import { getLibrary } from "./utils/web3React";
 
@@ -32,7 +34,11 @@ const Providers: React.FC = ({ children }) => {
   );
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider SnackbarProps={{ autoHideDuration: 4000 }}>
+          <ModalProvider>{children}</ModalProvider>
+        </SnackbarProvider>
+      </ThemeProvider>
     </Web3ReactProvider>
   );
 };

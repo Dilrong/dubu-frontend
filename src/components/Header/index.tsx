@@ -15,10 +15,11 @@ import {
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { useModal } from "mui-modal-provider";
 import MenuIcon from "@material-ui/icons/Menu";
 import truncateWalletAddress from "../../utils/truncateWalletAddress";
 import useAuth from "../../hooks/useAuth";
-import ConnectModal from "../WalletModal/ConnectModal";
+import WalletModal from "../WalletModal";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -61,13 +62,9 @@ const Header = () => {
   const classes = useStyles();
   const { login, logout } = useAuth();
   const { account } = useWeb3React();
+  const { showModal } = useModal();
 
-  const [modal, setModal] = useState(false);
   const [drawer, setDrawer] = useState(false);
-
-  const toggleModal = (open: boolean) => {
-    setModal(open);
-  };
 
   const toggleDrawer = (open: boolean) => {
     setDrawer(open);
@@ -124,7 +121,12 @@ const Header = () => {
             variant="outlined"
             color="primary"
             onClick={() => {
-              toggleModal(true);
+              const modal = showModal(WalletModal, {
+                login: login,
+                onClose: () => {
+                  modal.hide();
+                },
+              });
             }}
           >
             Connect Wallet
@@ -147,7 +149,7 @@ const Header = () => {
             color="primary"
             size="small"
             onClick={() => {
-              toggleModal(true);
+              showModal(WalletModal);
             }}
           >
             Connect Wallet
@@ -227,13 +229,6 @@ const Header = () => {
         </Toolbar>
       </AppBar>
       <MobileDrawer />
-      <ConnectModal
-        login={login}
-        open={modal}
-        handleClose={() => {
-          toggleModal(false);
-        }}
-      />
     </div>
   );
 };

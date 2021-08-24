@@ -20,6 +20,7 @@ const NotConnectCard: React.FC = () => {
           justifyContent="center"
           alignItems="center"
           alignContent="center"
+          xs={12}
           spacing={2}
         >
           <img className={classes.media} src="/assets/pot.png" alt="Pot" />
@@ -29,7 +30,7 @@ const NotConnectCard: React.FC = () => {
           <Grid item>
             <Typography variant="body1">Connect Wallet</Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <Button variant="contained" color="primary" fullWidth={true}>
               Connect Wallet
             </Button>
