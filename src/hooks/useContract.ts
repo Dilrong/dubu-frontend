@@ -12,12 +12,9 @@ import {
  * Helper hooks to get specific contracts (by ABI)
  */
 
-export const useERC20 = (address: string) => {
+export const useERC20 = () => {
   const { library } = useActiveWeb3React();
-  return useMemo(() => getBep20Contract(address, library?.getSigner()), [
-    address,
-    library,
-  ]);
+  return useMemo(() => getBep20Contract(library?.getSigner()), [library]);
 };
 
 export const useCakePot = () => {

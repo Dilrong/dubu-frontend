@@ -1,14 +1,12 @@
 import { ethers } from "ethers";
 import { simpleRpcProvider } from "../utils/providers";
 
-// Addresses
-import { getCakePotAddress } from "../utils/addressHelpers";
-
-// ABI
-
-import cakePotAbi from "../config/abi/cakePot.json";
-import bep20Abi from "../config/abi/erc20.json";
-import fungibleTokenAbi from "../config/abi/fungibleToken.json";
+import { CAKE_POT_ADDRESS, CAKE_POT_ABI } from "../config/abi/cakePot";
+import { BEP20_ADDRESS, BEP20_ABI } from "../config/abi/erc20";
+import {
+  FUNGIBLE_TOKEN_ADDRESS,
+  FUNGIBLE_TOKEN_ABI,
+} from "../config/abi/fungibleToken";
 
 const getContract = (
   abi: any,
@@ -20,21 +18,19 @@ const getContract = (
 };
 
 export const getBep20Contract = (
-  address: string,
   signer?: ethers.Signer | ethers.providers.Provider
 ) => {
-  return getContract(bep20Abi, address, signer);
+  return getContract(BEP20_ABI, BEP20_ADDRESS, signer);
 };
 
 export const getFungibleTokenContract = (
-  address: string,
   signer?: ethers.Signer | ethers.providers.Provider
 ) => {
-  return getContract(fungibleTokenAbi, address, signer);
+  return getContract(FUNGIBLE_TOKEN_ABI, FUNGIBLE_TOKEN_ADDRESS, signer);
 };
 
 export const getCakePotContract = (
   signer?: ethers.Signer | ethers.providers.Provider
 ) => {
-  return getContract(cakePotAbi, getCakePotAddress(), signer);
+  return getContract(CAKE_POT_ABI, CAKE_POT_ADDRESS, signer);
 };

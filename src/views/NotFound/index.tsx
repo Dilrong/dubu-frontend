@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Helmet } from "react-helmet";
 
-import Layout from "../Layout";
+import Layout from "views/Layout";
 
 const NotFound: React.FC = () => {
   const history = useHistory();

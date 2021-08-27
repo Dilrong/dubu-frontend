@@ -1,5 +1,4 @@
 import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
@@ -9,8 +8,16 @@ import {
   Button,
   TextField,
 } from "@material-ui/core";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
-// import { useCakePot } from "../../hooks/useContract";
+type DepositPotCardProp = {
+  season: string;
+  participant: string;
+  tvl: string;
+  end: boolean;
+  // approve: () => void;
+};
 
 const useStyles = makeStyles((theme) => ({
   root: { height: "100%", maxWidth: 500 },
@@ -19,7 +26,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DepositPotCard: React.FC = () => {
+const DepositPotCard: React.FC<DepositPotCardProp> = ({
+  season,
+  participant,
+  tvl,
+  end,
+}) => {
   const classes = useStyles();
   // const cakePot = useCakePot();
 
@@ -45,6 +57,7 @@ const DepositPotCard: React.FC = () => {
               <img src="/logo512.png" alt="dubu" className={classes.logo} />
             </Grid>
             <Grid item xs={6}>
+              <Typography variant="caption">#{season}</Typography>
               <Typography variant="h6">DUBU POT</Typography>
             </Grid>
           </Grid>
@@ -55,7 +68,9 @@ const DepositPotCard: React.FC = () => {
             </Grid>
             <Grid item>
               <Typography variant="caption">Next Draw</Typography>
-              <Typography>00d 23h 42m</Typography>
+              <Typography>
+                {(dayjs.extend(relativeTime), dayjs("2021.08.26").fromNow())}
+              </Typography>
             </Grid>
           </Grid>
           <Grid
@@ -68,11 +83,11 @@ const DepositPotCard: React.FC = () => {
           >
             <Grid item>
               <Typography variant="caption">TVL</Typography>
-              <Typography>$1,132,512</Typography>
+              <Typography>{tvl}</Typography>
             </Grid>
             <Grid item>
               <Typography variant="caption">Participants</Typography>
-              <Typography>1,132,512</Typography>
+              <Typography>{participant}</Typography>
             </Grid>
           </Grid>
           <Grid item container xs={12} spacing={1}>
@@ -86,12 +101,13 @@ const DepositPotCard: React.FC = () => {
             </Grid>
             <Grid item xs={12}>
               <Button variant="contained" color="primary" fullWidth={true}>
-                Deposit
+                Approve
               </Button>
             </Grid>
             <Grid item xs={12}>
               <Typography variant="caption">
-                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%
+                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%, N
+                75%
               </Typography>
             </Grid>
           </Grid>

@@ -13,8 +13,28 @@ npm install
 npm start
 ```
 
-## More
+## Structure
 
-[Contract](https://github.com/vector-finance/dubu)
+```
+src
+- components
+- config
+- hooks
+- state
+- utils
+- view
+App.tsx
+Providers.tsx
+```
+
+## Before
+
+- Check [Conventional Commits](https://www.conventionalcommits.org)
+- Check [Contract](https://github.com/vector-finance/dubu)
+- Check [material-ui](https://material-ui.com/)
+
+## More...
+
+- [Discord](https://discord.gg/y8QsS2N7)
 
 Powered by Vector Team.

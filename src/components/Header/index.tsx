@@ -17,8 +17,8 @@ import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useModal } from "mui-modal-provider";
 import MenuIcon from "@material-ui/icons/Menu";
-import truncateWalletAddress from "../../utils/truncateWalletAddress";
-import useAuth from "../../hooks/useAuth";
+import truncateWalletAddress from "utils/truncateWalletAddress";
+import useAuth from "hooks/useAuth";
 import WalletModal from "../WalletModal";
 
 const useStyles = makeStyles((theme) => ({

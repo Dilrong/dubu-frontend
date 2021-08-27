@@ -11,10 +11,10 @@ import {
 } from "@material-ui/core";
 import { Helmet } from "react-helmet";
 
-import Layout from "../Layout";
-import NoActiveCard from "../../components/NoActiveCard";
-import TabPanel from "../../components/TabPanel";
-import NotConnectCard from "../../components/NotConnectCard";
+import Layout from "views/Layout";
+import NoActiveCard from "components/NoActiveCard";
+import TabPanel from "components/TabPanel";
+import NotConnectCard from "components/NotConnectCard";
 
 const useStyles = makeStyles((theme) => ({
   container: {

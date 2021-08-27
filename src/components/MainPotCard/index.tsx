@@ -1,8 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, CardContent, Button, Grid } from "@material-ui/core";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+type MainPotCardProp = {
+  season: string;
+  participant: string;
+  tvl: string;
+  end: boolean;
+};
 
 const useStyles = makeStyles((theme) => ({
   root: { height: "100%", maxWidth: 500 },
@@ -11,7 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainPotCard: React.FC = () => {
+const MainPotCard: React.FC<MainPotCardProp> = ({
+  season,
+  participant,
+  tvl,
+  end,
+}) => {
   const history = useHistory();
   const classes = useStyles();
 
@@ -37,7 +50,8 @@ const MainPotCard: React.FC = () => {
               <img src="/logo512.png" alt="dubu" className={classes.logo} />
             </Grid>
             <Grid item xs={6}>
-              <Typography variant="h6">DUBU POT</Typography>
+              <Typography variant="caption">#{season}</Typography>
+              <Typography variant="h6"> DUBU POT</Typography>
             </Grid>
           </Grid>
           <Grid item container direction="column" xs={6} spacing={1}>
@@ -47,7 +61,9 @@ const MainPotCard: React.FC = () => {
             </Grid>
             <Grid item>
               <Typography variant="caption">Next Draw</Typography>
-              <Typography>00d 23h 42m</Typography>
+              <Typography>
+                {(dayjs.extend(relativeTime), dayjs("2021.08.26").fromNow())}
+              </Typography>
             </Grid>
           </Grid>
           <Grid
@@ -60,29 +76,41 @@ const MainPotCard: React.FC = () => {
           >
             <Grid item>
               <Typography variant="caption">TVL</Typography>
-              <Typography>$1,132,512</Typography>
+              <Typography>${tvl}</Typography>
             </Grid>
             <Grid item>
               <Typography variant="caption">Participants</Typography>
-              <Typography>1,132,512</Typography>
+              <Typography>{participant}</Typography>
             </Grid>
           </Grid>
           <Grid item container xs={12} spacing={1}>
             <Grid item xs={12}>
-              <Button
-                variant="contained"
-                color="primary"
-                fullWidth={true}
-                onClick={() => {
-                  history.push("pot");
-                }}
-              >
-                Let's DUBU
-              </Button>
+              {end === true ? (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth={true}
+                  disabled
+                >
+                  Ended Pot
+                </Button>
+              ) : (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth={true}
+                  onClick={() => {
+                    history.push("pot");
+                  }}
+                >
+                  Let's DUBU
+                </Button>
+              )}
             </Grid>
             <Grid item xs={12}>
               <Typography variant="caption">
-                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%
+                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%, N
+                75%
               </Typography>
             </Grid>
           </Grid>

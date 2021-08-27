@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CssBaseline } from "@material-ui/core";
 
-import useEagerConnect from "./hooks/useEagerConnect";
+import useEagerConnect from "hooks/useEagerConnect";
 
-import MainPot from "./views/MainPot";
-import MyPot from "./views/MyPot";
-import Pot from "./views/Pot";
-import NotFound from "./views/NotFound";
+import MainPot from "views/MainPot";
+import MyPot from "views/MyPot";
+import Pot from "views/Pot";
+import NotFound from "views/NotFound";
 
 const App = () => {
   useEagerConnect();

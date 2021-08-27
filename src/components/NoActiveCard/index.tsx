@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, CardContent, Grid, Button } from "@material-ui/core";
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NoActiveCard: React.FC = () => {
+  const history = useHistory();
   const classes = useStyles();
 
   return (
@@ -33,7 +35,14 @@ const NoActiveCard: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" color="primary" fullWidth={true}>
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth={true}
+              onClick={() => {
+                history.push("pot");
+              }}
+            >
               Let's Dubu
             </Button>
           </Grid>
