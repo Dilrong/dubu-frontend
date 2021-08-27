@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
-import { combineReducers } from "redux";
 import {
   persistReducer,
   FLUSH,
@@ -11,14 +10,13 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import rootReducer from "./rootReducer";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
 };
-
-const rootReducer = combineReducers({});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
