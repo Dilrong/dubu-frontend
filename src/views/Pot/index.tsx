@@ -61,7 +61,7 @@ const Pot: React.FC = () => {
   };
 
   const enterPot = async () => {
-    await cakeContract.enter(utils.parseEther(amount));
+    await cakePotContract.enter(utils.parseEther(amount));
   };
 
   const handleChange = (event: {
