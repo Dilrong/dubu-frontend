@@ -122,7 +122,7 @@ const Header = () => {
             color="primary"
             onClick={() => {
               const modal = showModal(WalletModal, {
-                login: login,
+                login,
                 onClose: () => {
                   modal.hide();
                 },
@@ -132,7 +132,13 @@ const Header = () => {
             Connect Wallet
           </Button>
         ) : (
-          <Button variant="outlined" color="primary" onClick={logout}>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => {
+              logout();
+            }}
+          >
             {truncateWalletAddress(account!)}
           </Button>
         )}
@@ -155,12 +161,7 @@ const Header = () => {
             Connect Wallet
           </Button>
         ) : (
-          <Button
-            variant="outlined"
-            color="primary"
-            size="small"
-            onClick={logout}
-          >
+          <Button variant="outlined" color="primary" size="small">
             {truncateWalletAddress(account!)}
           </Button>
         )}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Typography,
@@ -7,15 +7,15 @@ import {
   Grid,
   Tabs,
   Tab,
+  Button,
 } from "@material-ui/core";
 import { Helmet } from "react-helmet";
-
-import { ethersToSerializedBigNumber } from "utils/bigNumber";
-import { getCakePotContract } from "utils/contractHelpers";
 import TabPanel from "components/TabPanel";
 import PotCard from "components/MainPotCard";
 import CommunityPot from "components/CommunityPot";
 import Layout from "views/Layout";
+import { ethersToSerializedBigNumber } from "utils/bigNumber";
+import { useCakePot } from "hooks/useContract";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -49,38 +49,34 @@ const a11yProps = (index: number) => {
 
 const MainPot: React.FC = () => {
   const classes = useStyles();
-  const cakePotContract = getCakePotContract();
-
+  const cakePotContract = useCakePot();
   const [tab, setTab] = useState(0);
+
   const [season, setSeason] = useState("0");
   const [participant, setParticipant] = useState("0");
-  const [tvl, setTVL] = useState("0");
+  const [tvl, setTvl] = useState("0");
   const [end, setEnd] = useState(false);
+
+  const fetchPot = async () => {
+    const season = ethersToSerializedBigNumber(
+      await cakePotContract.currentSeason()
+    );
+    setSeason(season);
+    const participant = ethersToSerializedBigNumber(
+      await cakePotContract.userCounts(season)
+    );
+    setParticipant(participant);
+    const tvl = ethersToSerializedBigNumber(
+      await cakePotContract.totalAmounts(season)
+    );
+    setTvl(tvl);
+    const end = await cakePotContract.checkEnd();
+    setEnd(end);
+  };
 
   const handleChange = (_event: any, newValue: any) => {
     setTab(newValue);
   };
-
-  useEffect(() => {
-    async function setCakePotData() {
-      const _season = ethersToSerializedBigNumber(
-        await cakePotContract.currentSeason()
-      );
-      const _participant = ethersToSerializedBigNumber(
-        await cakePotContract.userCounts(season)
-      );
-      const _tvl = ethersToSerializedBigNumber(
-        await cakePotContract.totalAmounts(season)
-      );
-
-      setSeason(_season);
-      setParticipant(_participant);
-      setTVL(_tvl);
-      setEnd(await cakePotContract.checkEnd());
-    }
-
-    setCakePotData();
-  }, [season, participant, tvl, end, cakePotContract]);
 
   return (
     <Layout>
@@ -136,7 +132,7 @@ const MainPot: React.FC = () => {
               season={season}
               participant={participant}
               tvl={tvl}
-              end={false}
+              end={end}
             />
           </TabPanel>
         </Grid>
@@ -144,6 +140,14 @@ const MainPot: React.FC = () => {
           <CommunityPot />
         </TabPanel>
       </Grid>
+      <Button
+        onClick={() => {
+          fetchPot();
+        }}
+        size="small"
+      >
+        Get-Contract
+      </Button>
     </Layout>
   );
 };

@@ -1,6 +1,6 @@
-export const FUNGIBLE_TOKEN_ADDRESS = "";
+export const CAKE_ADDRESS = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82";
 
-export const FUNGIBLE_TOKEN_ABI = [
+export const CAKE_ABI = [
   {
     inputs: [
       {
