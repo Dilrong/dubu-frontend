@@ -1,46 +1,29 @@
-import { useEffect } from "react";
-import {
-  connectorLocalStorageKey,
-  ConnectorNames,
-} from "../config/constants/wallet";
-import useAuth from "./useAuth";
+import { useState, useEffect } from "react";
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../utils/web3React";
 
-const _binanceChainListener = async () =>
-  new Promise<void>((resolve) =>
-    Object.defineProperty(window, "BinanceChain", {
-      get() {
-        return this.bsc;
-      },
-      set(bsc) {
-        this.bsc = bsc;
+export default function useEagerConnect() {
+  const { activate, active } = useWeb3React();
 
-        resolve();
-      },
-    })
-  );
-
-const useEagerConnect = () => {
-  const { login } = useAuth();
+  const [tried, setTried] = useState(false);
 
   useEffect(() => {
-    const connectorId = window.localStorage.getItem(
-      connectorLocalStorageKey
-    ) as ConnectorNames;
-    if (connectorId) {
-      const isConnectorBinanceChain = connectorId === ConnectorNames.BSC;
-      const isBinanceChainDefined = Reflect.has(window, "BinanceChain");
-
-      // Currently BSC extension doesn't always inject in time.
-      // We must check to see if it exists, and if not, wait for it before proceeding.
-      if (isConnectorBinanceChain && !isBinanceChainDefined) {
-        _binanceChainListener().then(() => login(connectorId));
-
-        return;
+    injected.isAuthorized().then((isAuthorized: boolean) => {
+      if (isAuthorized) {
+        activate(injected, undefined, true).catch(() => {
+          setTried(true);
+        });
+      } else {
+        setTried(true);
       }
+    });
+  }, [activate]);
 
-      login(connectorId);
+  useEffect(() => {
+    if (!tried && active) {
+      setTried(true);
     }
-  }, [login]);
-};
+  }, [tried, active]);
 
-export default useEagerConnect;
+  return tried;
+}

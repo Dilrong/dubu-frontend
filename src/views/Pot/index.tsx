@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Typography, Box } from "@material-ui/core";
+import React, { useState } from "react";
+import { Grid, Typography, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { useWeb3React } from "@web3-react/core";
 import { Helmet } from "react-helmet";
 
 import Layout from "views/Layout";
 import DepositPotCard from "components/DepositPotCard";
 import { ethersToSerializedBigNumber } from "utils/bigNumber";
-import { getCakePotContract } from "utils/contractHelpers";
+import { CAKE_POT_ADDRESS } from "config/abi/cakePot";
+import { utils } from "ethers";
+import { useCakePot, useCake } from "hooks/useContract";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,36 +26,52 @@ const useStyles = makeStyles((theme) => ({
 
 const Pot: React.FC = () => {
   const classes = useStyles();
-  const { account } = useWeb3React();
-  const cakePotContract = getCakePotContract();
+  const cakePotContract = useCakePot();
+  const cakeContract = useCake();
 
   const [season, setSeason] = useState("0");
   const [participant, setParticipant] = useState("0");
-  const [tvl, setTVL] = useState("0");
+  const [tvl, setTvl] = useState("0");
+  const [end, setEnd] = useState(false);
+  const [amount, setAmount] = useState("0");
 
-  useEffect(() => {
-    async function setCakePotData() {
-      const _season = ethersToSerializedBigNumber(
-        await cakePotContract.currentSeason()
-      );
-      const _participant = ethersToSerializedBigNumber(
-        await cakePotContract.userCounts(season)
-      );
-      const _tvl = ethersToSerializedBigNumber(
-        await cakePotContract.totalAmounts(season)
-      );
+  const fetchPot = async () => {
+    const season = ethersToSerializedBigNumber(
+      await cakePotContract.currentSeason()
+    );
+    setSeason(season);
+    const participant = ethersToSerializedBigNumber(
+      await cakePotContract.userCounts(season)
+    );
+    setParticipant(participant);
+    const tvl = ethersToSerializedBigNumber(
+      await cakePotContract.totalAmounts(season)
+    );
+    setTvl(tvl);
+    const end = await cakePotContract.checkEnd();
+    setEnd(end);
+  };
 
-      setSeason(_season);
-      setParticipant(_participant);
-      setTVL(_tvl);
-    }
+  const endPot = async () => {
+    await cakePotContract.end();
+  };
 
-    setCakePotData();
-  }, [season, participant, tvl, cakePotContract]);
+  const approvePot = async () => {
+    await cakeContract.approve(CAKE_POT_ADDRESS, utils.parseEther(amount));
+  };
+
+  const enterPot = async () => {
+    await cakeContract.enter(utils.parseEther(amount));
+  };
+
+  const handleChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setAmount(event.target.value);
+  };
 
   return (
     <Layout>
-      {console.log(account)}
       <Helmet>
         <title>Pot</title>
       </Helmet>
@@ -85,12 +102,34 @@ const Pot: React.FC = () => {
                 season={season}
                 participant={participant}
                 tvl={tvl}
-                end={false}
+                end={end}
+                approve={async () => {
+                  await cakeContract.approve(
+                    CAKE_POT_ADDRESS,
+                    utils.parseEther(amount)
+                  );
+                }}
+                enter={enterPot}
+                handleChange={handleChange}
               />
             </Box>
           </Grid>
         </Grid>
       </Grid>
+      <Button
+        onClick={() => {
+          fetchPot();
+        }}
+        size="small"
+      >
+        Get-Contract
+      </Button>
+      <Button onClick={endPot} size="small">
+        End POT
+      </Button>
+      <Button onClick={approvePot} size="small">
+        APPROVE
+      </Button>
     </Layout>
   );
 };

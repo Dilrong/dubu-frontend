@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CssBaseline } from "@material-ui/core";
 
 import useEagerConnect from "hooks/useEagerConnect";
+import useInactiveListener from "hooks/useInactiveListener";
 
 import MainPot from "views/MainPot";
 import MyPot from "views/MyPot";
@@ -11,6 +12,7 @@ import NotFound from "views/NotFound";
 
 const App = () => {
   useEagerConnect();
+  useInactiveListener();
 
   return (
     <Router basename="/index.html">

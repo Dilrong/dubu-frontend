@@ -1,4 +1,4 @@
-export const CAKE_POT_ADDRESS = "0xf43df1bc8dd096f5f9df1fb4d676d2ab38592020";
+export const CAKE_POT_ADDRESS = "0x617E3a5eC6945ACBe51A2E85B347a227e53335Cc";
 
 export const CAKE_POT_ABI = [
   {

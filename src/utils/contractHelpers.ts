@@ -3,10 +3,7 @@ import { simpleRpcProvider } from "../utils/providers";
 
 import { CAKE_POT_ADDRESS, CAKE_POT_ABI } from "../config/abi/cakePot";
 import { BEP20_ADDRESS, BEP20_ABI } from "../config/abi/erc20";
-import {
-  FUNGIBLE_TOKEN_ADDRESS,
-  FUNGIBLE_TOKEN_ABI,
-} from "../config/abi/fungibleToken";
+import { CAKE_ADDRESS, CAKE_ABI } from "../config/abi/cake";
 
 const getContract = (
   abi: any,
@@ -23,10 +20,10 @@ export const getBep20Contract = (
   return getContract(BEP20_ABI, BEP20_ADDRESS, signer);
 };
 
-export const getFungibleTokenContract = (
+export const getCakeContract = (
   signer?: ethers.Signer | ethers.providers.Provider
 ) => {
-  return getContract(FUNGIBLE_TOKEN_ABI, FUNGIBLE_TOKEN_ADDRESS, signer);
+  return getContract(CAKE_ABI, CAKE_ADDRESS, signer);
 };
 
 export const getCakePotContract = (

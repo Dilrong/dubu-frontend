@@ -16,7 +16,9 @@ type DepositPotCardProp = {
   participant: string;
   tvl: string;
   end: boolean;
-  // approve: () => void;
+  enter?: () => void;
+  approve?: () => void;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -30,10 +32,10 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
   season,
   participant,
   tvl,
-  end,
+  enter,
+  handleChange,
 }) => {
   const classes = useStyles();
-  // const cakePot = useCakePot();
 
   return (
     <Card className={classes.root}>
@@ -97,11 +99,17 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
                 size="small"
                 fullWidth={true}
                 label="Enter POTS amount"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" color="primary" fullWidth={true}>
-                Approve
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth={true}
+                onClick={enter}
+              >
+                Enter POT
               </Button>
             </Grid>
             <Grid item xs={12}>
