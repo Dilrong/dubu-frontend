@@ -1,3 +1,4 @@
+import { utils } from "ethers";
 import { ethersToSerializedBigNumber } from "utils/bigNumber";
 import { getCakePotContract } from "utils/contractHelpers";
 
@@ -11,9 +12,7 @@ const fetchPot = async () => {
     const participant = ethersToSerializedBigNumber(
       await cakePotContract.userCounts(season)
     );
-    const tvl = ethersToSerializedBigNumber(
-      await cakePotContract.totalAmounts(season)
-    );
+    const tvl = utils.formatEther(await cakePotContract.totalAmounts(season));
     const end = await cakePotContract.checkEnd();
     return {
       isLoading: false,
@@ -25,10 +24,10 @@ const fetchPot = async () => {
   } catch (error) {
     return {
       isLoading: true,
-      season: null,
-      participant: null,
-      tvl: null,
-      potEnd: null,
+      season: "0",
+      participant: "0",
+      tvl: "0",
+      potEnd: false,
     };
   }
 };
