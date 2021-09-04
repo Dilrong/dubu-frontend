@@ -1,10 +1,12 @@
 import { Web3ReactProvider } from "@web3-react/core";
+import { Provider } from "react-redux";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import { SnackbarProvider } from "material-ui-snackbar-provider";
 import { useMediaQuery } from "@material-ui/core";
 import ModalProvider from "mui-modal-provider";
 
 import { getLibrary } from "utils/web3React";
+import store from "state";
 
 const Providers: React.FC = ({ children }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -35,11 +37,13 @@ const Providers: React.FC = ({ children }) => {
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <ThemeProvider theme={theme}>
-        <SnackbarProvider SnackbarProps={{ autoHideDuration: 4000 }}>
-          <ModalProvider>{children}</ModalProvider>
-        </SnackbarProvider>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider SnackbarProps={{ autoHideDuration: 4000 }}>
+            <ModalProvider>{children}</ModalProvider>
+          </SnackbarProvider>
+        </ThemeProvider>
+      </Provider>
     </Web3ReactProvider>
   );
 };

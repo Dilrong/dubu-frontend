@@ -5,10 +5,11 @@ import { Helmet } from "react-helmet";
 
 import Layout from "views/Layout";
 import DepositPotCard from "components/DepositPotCard";
-import { ethersToSerializedBigNumber } from "utils/bigNumber";
 import { CAKE_POT_ADDRESS } from "config/abi/cakePot";
 import { utils } from "ethers";
 import { useCakePot, useCake } from "hooks/useContract";
+import { useAppSelector, useFetchPotData } from "state/hooks";
+import Progress from "components/Progress";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -29,28 +30,15 @@ const Pot: React.FC = () => {
   const cakePotContract = useCakePot();
   const cakeContract = useCake();
 
-  const [season, setSeason] = useState("0");
-  const [participant, setParticipant] = useState("0");
-  const [tvl, setTvl] = useState("0");
-  const [end, setEnd] = useState(false);
   const [amount, setAmount] = useState("0");
 
-  const fetchPot = async () => {
-    const season = ethersToSerializedBigNumber(
-      await cakePotContract.currentSeason()
-    );
-    setSeason(season);
-    const participant = ethersToSerializedBigNumber(
-      await cakePotContract.userCounts(season)
-    );
-    setParticipant(participant);
-    const tvl = ethersToSerializedBigNumber(
-      await cakePotContract.totalAmounts(season)
-    );
-    setTvl(tvl);
-    const end = await cakePotContract.checkEnd();
-    setEnd(end);
-  };
+  const isLoading = useAppSelector((state) => state.pots.potData.isLoading);
+  const season = useAppSelector((state) => state.pots.potData.season);
+  const participant = useAppSelector((state) => state.pots.potData.participant);
+  const tvl = useAppSelector((state) => state.pots.potData.tvl);
+  const end = useAppSelector((state) => state.pots.potData.potEnd);
+
+  useFetchPotData();
 
   const endPot = async () => {
     await cakePotContract.end();
@@ -69,6 +57,8 @@ const Pot: React.FC = () => {
   }) => {
     setAmount(event.target.value);
   };
+
+  if (isLoading) return <Progress />;
 
   return (
     <Layout>
@@ -116,14 +106,6 @@ const Pot: React.FC = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Button
-        onClick={() => {
-          fetchPot();
-        }}
-        size="small"
-      >
-        Get-Contract
-      </Button>
       <Button onClick={endPot} size="small">
         End POT
       </Button>
