@@ -16,6 +16,7 @@ import {
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useModal } from "mui-modal-provider";
+import { useTranslation } from "react-i18next";
 import MenuIcon from "@material-ui/icons/Menu";
 import truncateWalletAddress from "utils/truncateWalletAddress";
 import useAuth from "hooks/useAuth";
@@ -40,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  formControl: {
+    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(1),
+    minWidth: 50,
+  },
   link: {
     margin: theme.spacing(1, 1.5),
     textDecoration: "none",
@@ -60,6 +66,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
+  const { t } = useTranslation("");
+
   const { login, logout } = useAuth();
   const { account } = useWeb3React();
   const { showModal } = useModal();
@@ -100,7 +108,7 @@ const Header = () => {
           activeClassName={classes.selected}
           className={classes.link}
         >
-          DubuPot
+          {t("dubuPot")}
         </NavLink>
         <NavLink
           to="/my-dubupots"
@@ -108,13 +116,13 @@ const Header = () => {
           activeClassName={classes.selected}
           className={classes.link}
         >
-          My Pots
+          {t("myPot")}
         </NavLink>
         <a
           href="https://dubu-finance.gitbook.io/dubu-finance/"
           className={classes.link}
         >
-          Docs
+          {t("docs")}
         </a>
         {account === undefined ? (
           <Button
@@ -129,7 +137,7 @@ const Header = () => {
               });
             }}
           >
-            Connect Wallet
+            {t("Connect Wallet")}
           </Button>
         ) : (
           <Button
@@ -158,7 +166,7 @@ const Header = () => {
               showModal(WalletModal);
             }}
           >
-            Connect Wallet
+            {t("Connect Wallet")}
           </Button>
         ) : (
           <Button variant="outlined" color="primary" size="small">
@@ -193,7 +201,7 @@ const Header = () => {
             className={classes.link}
           >
             <ListItem>
-              <ListItemText>DubuPot</ListItemText>
+              <ListItemText>{t("dubuPot")}</ListItemText>
             </ListItem>
           </NavLink>
           <NavLink
@@ -203,7 +211,7 @@ const Header = () => {
             className={classes.link}
           >
             <ListItem>
-              <ListItemText>My Pots</ListItemText>
+              <ListItemText>{t("myPot")}</ListItemText>
             </ListItem>
           </NavLink>
           <a
@@ -211,7 +219,7 @@ const Header = () => {
             className={classes.link}
           >
             <ListItem>
-              <ListItemText>Docs</ListItemText>
+              <ListItemText>{t("docs")}</ListItemText>
             </ListItem>
           </a>
         </List>

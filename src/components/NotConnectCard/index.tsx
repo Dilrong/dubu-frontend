@@ -2,6 +2,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, CardContent, Grid, Button } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: { height: "100%", maxWidth: 500 },
@@ -10,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 const NotConnectCard: React.FC = () => {
   const classes = useStyles();
+  const { t } = useTranslation("");
 
   return (
     <Card className={classes.root}>
@@ -24,15 +26,17 @@ const NotConnectCard: React.FC = () => {
           spacing={2}
         >
           <img className={classes.media} src="/assets/pot.png" alt="Pot" />
-          <Grid item>
-            <Typography variant="h6">Connect Wallet</Typography>
+          <Grid item xs={12} style={{ textAlign: "center" }}>
+            <Typography variant="h6">{t("Connect Wallet")}</Typography>
           </Grid>
-          <Grid item>
-            <Typography variant="body1">Connect Wallet</Typography>
+          <Grid item xs={12}>
+            <Typography variant="body1" style={{ textAlign: "center" }}>
+              {t("To use Dubu Pot, you need to connect your wallet.")}
+            </Typography>
           </Grid>
           <Grid item xs={12}>
             <Button variant="contained" color="primary" fullWidth={true}>
-              Connect Wallet
+              {t("Connect Wallet")}
             </Button>
           </Grid>
         </Grid>

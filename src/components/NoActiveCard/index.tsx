@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, CardContent, Grid, Button } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   root: { height: "100%", maxWidth: 500 },
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 const NoActiveCard: React.FC = () => {
   const history = useHistory();
   const classes = useStyles();
+  const { t } = useTranslation("");
 
   return (
     <Card className={classes.root}>
@@ -21,17 +23,26 @@ const NoActiveCard: React.FC = () => {
           justifyContent="center"
           alignItems="center"
           alignContent="center"
-          spacing={3}
+          spacing={2}
         >
-          <Grid item>
+          <Grid
+            item
+            container
+            justifyContent="center"
+            alignItems="center"
+            alignContent="center"
+            xs={12}
+          >
             <img className={classes.media} src="/assets/pot.png" alt="Pot" />
           </Grid>
-          <Grid item>
-            <Typography variant="h6">Play with Dubupot</Typography>
+          <Grid item xs={12}>
+            <Typography variant="h6" style={{ textAlign: "center" }}>
+              {t("Play with Dubupot")}
+            </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12}>
             <Typography style={{ textAlign: "center" }}>
-              You haven't entered any Moonpots yet.
+              {t("You haven't entered any Dubupots yet.")}
             </Typography>
           </Grid>
           <Grid item xs={12}>
@@ -43,7 +54,7 @@ const NoActiveCard: React.FC = () => {
                 history.push("pot");
               }}
             >
-              Let's Dubu
+              {t("Let's DUBU")}
             </Button>
           </Grid>
         </Grid>
