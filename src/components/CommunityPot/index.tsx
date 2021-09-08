@@ -12,6 +12,7 @@ import {
   List,
   ListItem,
 } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 
 interface SoicalCardProp {
   img: string;
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 const CommunityPot: React.FC = () => {
   const history = useHistory();
   const classes = useStyles();
+  const { t } = useTranslation("");
 
   const SocialCard = ({ img, body, label, link }: SoicalCardProp) => (
     <Card className={classes.socialCard}>
@@ -78,10 +80,11 @@ const CommunityPot: React.FC = () => {
         className={classes.head}
       >
         <img src="/assets/pot.png" alt="pot" width="150" />
-        <Typography variant="h5">Join the Community</Typography>
+        <Typography variant="h5">{t("Join the Community")}</Typography>
         <Typography variant="body1">
-          There are no community pots yet. You can suggest a new pot in one of
-          our channels, or join our devs to build one for your favorite project.
+          {t(
+            "There are no community pots yet. You can suggest a new pot in one of our channels, or join our devs to build one for your favorite project."
+          )}
         </Typography>
       </Grid>
       <Grid
@@ -94,25 +97,31 @@ const CommunityPot: React.FC = () => {
         <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/telegram.svg"
-            body="Learn about Dubupot and get direct support from the community"
-            label="Join Our Telegram"
-            link=""
+            body={t(
+              "Learn about Dubupot and get direct support from the community"
+            )}
+            label={t("Join Our Telegram")}
+            link="https://t.me/DUBUfinance"
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/discord.svg"
-            body="Join the conversation with our active community of developers"
-            label="Join Our Discord"
-            link=""
+            body={t(
+              "Join the conversation with our active community of developers"
+            )}
+            label={t("Join Our Discord")}
+            link="https://discord.com/invite/9uChmzfRjY"
           />
         </Grid>
         <Grid item xs={12} sm={4}>
           <SocialCard
             img="/assets/twitter.svg"
-            body="Get the latest updates and take part in social media giveaways"
-            label="Follow our Twitter"
-            link=""
+            body={t(
+              "Get the latest updates and take part in social media giveaways"
+            )}
+            label={t("Follow Our Twitter")}
+            link="https://twitter.com/DubuFinance"
           />
         </Grid>
       </Grid>

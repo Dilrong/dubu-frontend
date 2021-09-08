@@ -9,6 +9,7 @@ import {
   Tab,
 } from "@material-ui/core";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { useAppSelector, useFetchPotData } from "state/hooks";
 import TabPanel from "components/TabPanel";
 import PotCard from "components/MainPotCard";
@@ -48,6 +49,7 @@ const a11yProps = (index: number) => {
 
 const MainPot: React.FC = () => {
   const classes = useStyles();
+  const { t } = useTranslation("");
   const [tab, setTab] = useState(0);
 
   const isLoading = useAppSelector((state) => state.pots.potData.isLoading);
@@ -79,13 +81,15 @@ const MainPot: React.FC = () => {
       >
         <Grid item className={classes.headerText}>
           <Typography variant="h5">
-            Deposit crypto, earn interest and a chance to win $531,900
+            {t("Deposit crypto, earn interest and a chance to win")}
           </Typography>
         </Grid>
         <Grid item>
           <Card className={classes.card}>
             <CardContent>
-              <Typography variant="body2">TOTAL DEPOSITS (TVL)</Typography>
+              <Typography variant="body2">
+                {t("TOTAL DEPOSITS")} (TVL)
+              </Typography>
               <Typography color="primary" variant="h4">
                 $68,566,995
               </Typography>
@@ -99,8 +103,8 @@ const MainPot: React.FC = () => {
             onChange={handleChange}
             className={classes.tab}
           >
-            <Tab label="Main Pots" {...a11yProps(0)} />
-            <Tab label="Community Pots" {...a11yProps(1)} />
+            <Tab label={t("mainPots")} {...a11yProps(0)} />
+            <Tab label={t("communityPots")} {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>

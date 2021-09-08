@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Card, CardContent, Button, Grid } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -27,6 +28,7 @@ const MainPotCard: React.FC<MainPotCardProp> = ({
 }) => {
   const history = useHistory();
   const classes = useStyles();
+  const { t } = useTranslation("");
 
   return (
     <Card className={classes.root}>
@@ -51,16 +53,16 @@ const MainPotCard: React.FC<MainPotCardProp> = ({
             </Grid>
             <Grid item xs={6}>
               <Typography variant="caption">#{season}</Typography>
-              <Typography variant="h6"> DUBU POT</Typography>
+              <Typography variant="h6"> {t("dubuPot")}</Typography>
             </Grid>
           </Grid>
           <Grid item container direction="column" xs={6} spacing={1}>
             <Grid item>
-              <Typography variant="caption">SSR Prize</Typography>
+              <Typography variant="caption">{t("ssrPrize")}</Typography>
               <Typography>$1,132,512</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="caption">Next Draw</Typography>
+              <Typography variant="caption">{t("nextDraw")}</Typography>
               <Typography>
                 {(dayjs.extend(relativeTime), dayjs("2021.08.26").fromNow())}
               </Typography>
@@ -79,7 +81,7 @@ const MainPotCard: React.FC<MainPotCardProp> = ({
               <Typography>${tvl}</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="caption">Participants</Typography>
+              <Typography variant="caption">{t("participants")}</Typography>
               <Typography>{participant}</Typography>
             </Grid>
           </Grid>
@@ -92,7 +94,7 @@ const MainPotCard: React.FC<MainPotCardProp> = ({
                   fullWidth={true}
                   disabled
                 >
-                  Ended Pot
+                  {t("endedPot")}
                 </Button>
               ) : (
                 <Button
@@ -103,14 +105,14 @@ const MainPotCard: React.FC<MainPotCardProp> = ({
                     history.push("pot");
                   }}
                 >
-                  Let's DUBU
+                  {t("Let's DUBU")}
                 </Button>
               )}
             </Grid>
             <Grid item xs={12}>
               <Typography variant="caption">
-                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%, N
-                75%
+                {t("The odds for the winner are as follows")}: SSR 3%, SR 7%, R
+                15%, N 75%
               </Typography>
             </Grid>
           </Grid>

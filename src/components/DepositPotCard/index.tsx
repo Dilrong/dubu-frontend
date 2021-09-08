@@ -8,6 +8,7 @@ import {
   Button,
   TextField,
 } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
@@ -36,6 +37,7 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
   handleChange,
 }) => {
   const classes = useStyles();
+  const { t } = useTranslation("");
 
   return (
     <Card className={classes.root}>
@@ -60,16 +62,16 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
             </Grid>
             <Grid item xs={6}>
               <Typography variant="caption">#{season}</Typography>
-              <Typography variant="h6">DUBU POT</Typography>
+              <Typography variant="h6">{t("dubuPot")}</Typography>
             </Grid>
           </Grid>
           <Grid item container direction="column" xs={6} spacing={1}>
             <Grid item>
-              <Typography variant="caption">SSR Prize</Typography>
+              <Typography variant="caption">{t("ssrPrize")}</Typography>
               <Typography>$1,132,512</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="caption">Next Draw</Typography>
+              <Typography variant="caption">{t("nextDraw")}</Typography>
               <Typography>
                 {(dayjs.extend(relativeTime), dayjs("2021.08.26").fromNow())}
               </Typography>
@@ -88,7 +90,7 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
               <Typography>{tvl}</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="caption">Participants</Typography>
+              <Typography variant="caption">{t("participants")}</Typography>
               <Typography>{participant}</Typography>
             </Grid>
           </Grid>
@@ -98,7 +100,7 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
                 variant="outlined"
                 size="small"
                 fullWidth={true}
-                label="Enter POTS amount"
+                label={t("Enter DUBU amount")}
                 onChange={handleChange}
               />
             </Grid>
@@ -109,13 +111,13 @@ const DepositPotCard: React.FC<DepositPotCardProp> = ({
                 fullWidth={true}
                 onClick={enter}
               >
-                Enter POT
+                {t("Enter POT")}
               </Button>
             </Grid>
             <Grid item xs={12}>
               <Typography variant="caption">
-                The odds for the winner are as follows: SSR 3%, SR 7%, R 15%, N
-                75%
+                {t("The odds for the winner are as follows")}: SSR 3%, SR 7%, R
+                15%, N 75%
               </Typography>
             </Grid>
           </Grid>

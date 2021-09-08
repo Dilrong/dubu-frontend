@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Grid, Typography, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 import Layout from "views/Layout";
 import DepositPotCard from "components/DepositPotCard";
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Pot: React.FC = () => {
   const classes = useStyles();
+  const { t } = useTranslation("");
   const cakePotContract = useCakePot();
   const cakeContract = useCake();
 
@@ -75,7 +77,7 @@ const Pot: React.FC = () => {
       >
         <Grid item className={classes.headerText}>
           <Typography variant="h5">
-            Deposit crypto, earn interest and a chance to win $531,900
+            {t("Deposit crypto, earn interest and a chance to win")}
           </Typography>
         </Grid>
         <Grid

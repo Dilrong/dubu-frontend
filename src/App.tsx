@@ -10,6 +10,8 @@ import MyPot from "views/MyPot";
 import Pot from "views/Pot";
 import NotFound from "views/NotFound";
 
+import "./config/lang/i18n";
+
 const App = () => {
   useEagerConnect();
   useInactiveListener();

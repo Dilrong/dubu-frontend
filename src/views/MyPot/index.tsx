@@ -10,6 +10,7 @@ import {
   Tab,
 } from "@material-ui/core";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 import Layout from "views/Layout";
 import NoActiveCard from "components/NoActiveCard";
@@ -48,6 +49,7 @@ const a11yProps = (index: number) => {
 
 const MyPot: React.FC = () => {
   const classes = useStyles();
+  const { t } = useTranslation("");
   const { account } = useWeb3React();
   const [tab, setTab] = useState(0);
 
@@ -70,13 +72,15 @@ const MyPot: React.FC = () => {
       >
         <Grid item className={classes.headerText}>
           <Typography variant="h5">
-            Deposit crypto, earn interest and a chance to win $531,900
+            {t("Deposit crypto, earn interest and a chance to win")}
           </Typography>
         </Grid>
         <Grid item>
           <Card className={classes.card}>
             <CardContent>
-              <Typography variant="body2">TOTAL DEPOSITS (TVL)</Typography>
+              <Typography variant="body2">
+                {t("TOTAL DEPOSITS")} (TVL)
+              </Typography>
               <Typography color="primary" variant="h4">
                 $68,566,995
               </Typography>
@@ -90,8 +94,8 @@ const MyPot: React.FC = () => {
             onChange={handleChange}
             className={classes.tab}
           >
-            <Tab label="My Active Pots" {...a11yProps(0)} />
-            <Tab label="My Past Pots" {...a11yProps(1)} />
+            <Tab label={t("My Active Pots")} {...a11yProps(0)} />
+            <Tab label={t("My Past Pots")} {...a11yProps(1)} />
           </Tabs>
         </Grid>
       </Grid>
