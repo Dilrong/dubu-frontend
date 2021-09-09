@@ -3,7 +3,7 @@
   "TOTAL DEPOSITS": "총 예치금",
   "mainPots": "메인팟",
   "communityPots": "커뮤니티팟",
-  "Dubu Pot": "두부팟",
+  "dubuPot": "두부팟",
   "myPot": "나의 팟",
   "docs": "문서",
   "lang": "한국어",
@@ -15,8 +15,8 @@
   "endedPot": "종료된 팟",
   "Enter Dubu amount": "두부 금액 입력",
   "Enter POT": "팟 들어가기",
-  "Let's DUBU": "두부 먹자",
-  "The odds for the winner are as follows": "예상 확률",
+  "Let's DUBU": "두부를 먹자!",
+  "The estimated win rates are": "예상 확률",
   "Join the Community": "커뮤니티에 참여하세요",
   "There are no community pots yet. You can suggest a new pot in one of our channels, or join our devs to build one for your favorite project.": "커뮤니티 팟은 아직 없습니다. 우리의 채널 중 하나에서 새로운 팟을 제안하거나, 개발팀에 가입하여 원하는 프로젝트를 위한 팟을 만들 수 있습니다.",
   "Learn about Dubupot and get direct support from the community": "두부팟에 대해 알아보고 커뮤니티에서 직접 지원을 받아보세요.",
@@ -27,6 +27,6 @@
   "Follow Our Twitter": "트위터 참여하기",
   "My Active Pots": "활성화된 팟",
   "My Past Pots": "나의 지난 팟",
-  "Play with Dubu Pot": "두부팟과 놀자",
+  "Play with DUBU": "두부랑 놀자!",
   "There is no active Dubu Pots now.": "활성화된 두부팟이 없습니다."
 }
