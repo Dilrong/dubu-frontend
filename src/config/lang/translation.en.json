@@ -9,14 +9,14 @@
   "lang": "English",
   "Connect Wallet": "Connect Wallet",
   "To use Dubu Pot, you need to connect your wallet.": "To use Dubu Pot, you need to connect your wallet.",
-  "ssrPrize": "SSR Prize",
+  "ssrPrize": "SSR Prizes",
   "nextDraw": "Next Draw",
   "participants": "Participants",
   "endedPot": "Ended Pot",
-  "Enter DUBU amount": "Enter DUBU amount",
+  "Enter Dubu amount": "Enter Dubu amount",
   "Enter POT": "Enter POT",
   "Let's DUBU": "Let's DUBU",
-  "The odds for the winner are as follows": "The odds for the winner are as follows",
+  "The estimated win rates are": "The estimated win rates are",
   "Join the Community": "Join the Community",
   "There are no community pots yet. You can suggest a new pot in one of our channels, or join our devs to build one for your favorite project.": "There are no community pots yet. You can suggest a new pot in one of our channels, or join our devs to build one for your favorite project.",
   "Learn about Dubupot and get direct support from the community": "Learn about Dubupot and get direct support from the community",
@@ -27,6 +27,6 @@
   "Follow Our Twitter": "Join our twitter",
   "My Active Pots": "My Active Pots",
   "My Past Pots": "My Past Pots",
-  "Play with Dubupot": "Play with Dubupot",
-  "You haven't entered any Dubupots yet.": "You haven't entered any Dubupots yet."
+  "Play with DUBU": "Play with DUBU",
+  "There is no active Dubu Pots now.": "There is no active Dubu Pots now."
 }
